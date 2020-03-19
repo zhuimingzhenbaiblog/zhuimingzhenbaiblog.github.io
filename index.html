@@ -64,6 +64,119 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-c-补充知识3-0" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/03/19/c-%E8%A1%A5%E5%85%85%E7%9F%A5%E8%AF%863-0/" class="article-date">
+  <time datetime="2020-03-19T07:58:37.000Z" itemprop="datePublished">2020-03-19</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/03/19/c-%E8%A1%A5%E5%85%85%E7%9F%A5%E8%AF%863-0/">c++补充知识3.0</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>int a 和 int &amp;a 的区别：<br>    int a的意思是定义一个变量a<br>    int &amp;a意思是定义一个引用        //引用相当于指针再取值 他和被引用的变量都是表示同一块内存<br>    引用就是给变量取别名 int b ;int &amp;a=b; 用cout&lt;&lt;&amp;a 和cout&lt;&lt;&amp;b 你会发现他们的地址是一样的</p>
+<p>C++核心编程：<br>    内存分区模型：<br>        #代码区：存放函数体的二进制代码，有操作系统进行管理。（就是自己写的代码的内容就是放在代码区中）<br>        #全局区：存放全局变量和静态变量以及常量。<br>        #栈区：由编译器自动分配释放，存放函数的参数值，局部变量等。（该地区的数据存活死亡由编译器管理）<br>        #堆区:由程序员分配和释放，若程序员不释放，程序结束时由操作系统回收。<br>    内存分区的意义：<br>        给数据不同的生命周期啊，内存管理会更加方便，合理，反正大大的好。</p>
+<pre><code>关于代码区：
+    1.很明显，存放的CPU执行的机器指令。就是01010101的二进制。
+    2.代码区是共享的，因为有些程序是频繁执行的，所以共享的话只要在内存中有一份代码就好了。
+    3.代码区是只读的，为了防止被改，你懂得。
+
+关于全局区：
+    全局变量和静态变量都放在这。
+    还包含了常量区:字符串常量和其他常量。
+    注意！！ 该区域的数据在程序结束后由操作系统释放，不归程序员管哦。
+    #全局变量定义在函数的外面
+    #静态变量：在普通变量前面加static后就属于静态变量，存放在全局区
+        语法： static int s_a = 10;
+    #常量：
+        1.字符串常量&quot;Hello World&quot;
+        2.const修饰的全局变量（在全局区）
+        3.const修饰的局部变量（不在全局区）
+
+关于栈区：
+    注意事项：不要返回局部变量的地址，栈区开辟的数据由编译器自动释放
+    栈区存放局部变量和形参的数据
+
+关于堆区：
+    利用new关键字，可以将数据开辟到堆区
+    new int(10); //返回这个数据的指针
+    int * p = new int (10);  //接收这个数据，此时指针本质也是局部变量，反正栈上，指针保存的数据是放在堆区
+    释放语法： delete p;  //释放p的内存
+    new int[10];  //创建一个数组
+    int * arr = new int[10];   
+    delete[] arr;       //释放数组</code></pre><p>引用：<br>    给变量起别名。<br>    语法： 数据类型 &amp;别名 = 原名；<br>    例子: int a =10; int &amp;b = a;<br>    注意事项： 引用必须初始化，并且不可以改。<br>    ##引用做函数参数<br>        引用传递 void swap(int &amp;a , int &amp;b){…}</p>
+<pre><code>引用做函数的返回值：
+    不要返回局部变量的引用。
+    函数的调用可以作为左值。 左值： test() = 1000; 
+
+引用的本质：
+    引用的本质在c++内部实现是一个指针常量
+    int &amp; ref = a; //等效于 int * const ref = &amp;a; 指针的指向不可以改，值可以改</code></pre><p>函数的重载：<br>    作用：函数的名可以相同，提高复用性<br>    满足的条件：<br>    1.同一个作用域下<br>    2.函数名称相同<br>    3.函数的参数类型不同，或者个数不同或者顺序不同</p>
+<p>类和对象：<br>    三大特性：封装，继承，多态</p>
+<pre><code>封装：
+    ##将属性和行为作为一个整体，表现生活中的事物
+    ##将属性和行为加以权限控制
+class：
+    class代表设计一个类，类后面紧跟着的就是累名称
+例子：    
+    class Circle
+    {
+    public：  //访问权限
+        int m_r;     //属性
+        double calculate()         //行为
+        {
+            return 2 * PI * m_r;        
+        }
+    }；
+    int main(){
+
+        Circle c1;    //创建具体的圆（对象）c1
+        c1.m_r = 10;  //给圆的对象的属性进行赋值
+        cout &lt;&lt; &quot;圆的周长为： &quot; &lt;&lt; c1.calculate() &lt;&lt; endl; //调用行为
+        .......
+    }
+
+数组，结构体，类的区别:
+    数组是一系列类型相同的元素集合。
+    结构体是不同类型的元素的集合。
+    类不仅是数据类型不同的元素组合，还包括了对元素的操作方法。
+    struct 默认权限是 公共 public
+    class  默认权限是 私有 private
+
+封装的意义：
+    类在设计的时候，可以把属性和行为放在不同的权限下，加以控制。
+    三种权限：
+        1.public     公共权限  类内可以访问 类外可以访问
+        2.protected  保护权限  类内可以访问 类外不可以访问
+        3.private    私有权限  类内可以访问 类外不可以访问
+    成员属性设置为私有：
+        优点1.可以自己控制读写的权限
+        优点2.对于写权限，我们可以检测数据的有效性</code></pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/03/19/c-%E8%A1%A5%E5%85%85%E7%9F%A5%E8%AF%863-0/" data-id="ck7ygs7em0000asushch4330r" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-C-补充知识2-0" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2020/03/16/C-%E8%A1%A5%E5%85%85%E7%9F%A5%E8%AF%862-0/" class="article-date">
@@ -119,7 +232,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/03/16/C-%E8%A1%A5%E5%85%85%E7%9F%A5%E8%AF%862-0/" data-id="ck7u8v56m0000pousak7hdcc8" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/03/16/C-%E8%A1%A5%E5%85%85%E7%9F%A5%E8%AF%862-0/" data-id="ck7ygs7fo0003asus6lzs9ufk" class="article-share-link">Share</a>
       
       
     </footer>
@@ -172,7 +285,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/03/15/c-%E8%A1%A5%E5%85%85%E7%9F%A5%E8%AF%861-0/" data-id="ck7u8v56q0001pousfe001byv" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/03/15/c-%E8%A1%A5%E5%85%85%E7%9F%A5%E8%AF%861-0/" data-id="ck7ygs7fn0002asusdpq38xx9" class="article-share-link">Share</a>
       
       
     </footer>
@@ -213,7 +326,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/03/12/%E8%BF%99%E6%98%AF%E4%B8%80%E5%8F%AA%E8%82%A5%E9%BE%99%EF%BC%9F/" data-id="ck7u8v56s0003pousd3951kem" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/03/12/%E8%BF%99%E6%98%AF%E4%B8%80%E5%8F%AA%E8%82%A5%E9%BE%99%EF%BC%9F/" data-id="ck7ygs7fp0004asus08qlfv3z" class="article-share-link">Share</a>
       
       
     </footer>
@@ -262,7 +375,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/03/12/hello-world/" data-id="ck7u8v56r0002pousbqos7sqo" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/03/12/hello-world/" data-id="ck7ygs7fe0001asusgbud3oyb" class="article-share-link">Share</a>
       
       
     </footer>
@@ -301,6 +414,10 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2020/03/19/c-%E8%A1%A5%E5%85%85%E7%9F%A5%E8%AF%863-0/">c++补充知识3.0</a>
+          </li>
         
           <li>
             <a href="/2020/03/16/C-%E8%A1%A5%E5%85%85%E7%9F%A5%E8%AF%862-0/">C++补充知识2.0</a>
