@@ -163,11 +163,16 @@ class：
         3.private    私有权限  类内可以访问 类外不可以访问
     成员属性设置为私有：
         优点1.可以自己控制读写的权限
-        优点2.对于写权限，我们可以检测数据的有效性</code></pre>
+        优点2.对于写权限，我们可以检测数据的有效性</code></pre><p>对象的初始化和清理：<br>    构造函数，析构函数<br>    构造函数语法： 类名 (){}   //可以有参数，可以发生重载<br>    析构函数语法： 类名 (){}   //没有参数，不可以重载</p>
+<p>构造函数的分类及调用：<br>    分类：<br>        按参数分：有参构造和无参构造<br>        按类型分：普通构造和拷贝构造<br>            //无参构造函数<br>                Person(){<br>                    cout &lt;&lt; “ ….” &lt;&lt; endl;<br>                }<br>            //有参构造函数：<br>                Person(int a){<br>                    age = a;<br>                }<br>            //拷贝构造函数：<br>                Person(const Person &amp; p){<br>                    age = p.age;<br>                }<br>    调用方法：<br>        1.括号法<br>            Person p1;       //默认构造函数调用<br>            Person p2(10);   //有参构造函数<br>            Person p3(p2);   //拷贝构造函数<br>        2.显示法<br>            Person p2 = Person(10);<br>        3.隐式转换法<br>            Person p4 = 10;   //相当于 写了 Person p4 = Person(10);</p>
+<pre><code>拷贝构造函数的调用时机:
+    1.使用一个已经创建完毕的对象来初始化一个新对象
+    2.值传递的方式给函数参数传值
+    3.以值方式返回局部变量</code></pre>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/03/19/c-%E8%A1%A5%E5%85%85%E7%9F%A5%E8%AF%863-0/" data-id="ck7ygs7em0000asushch4330r" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/03/19/c-%E8%A1%A5%E5%85%85%E7%9F%A5%E8%AF%863-0/" data-id="ck7zvjqe700007gus2302fhrr" class="article-share-link">Share</a>
       
       
     </footer>
@@ -232,7 +237,7 @@ class：
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/03/16/C-%E8%A1%A5%E5%85%85%E7%9F%A5%E8%AF%862-0/" data-id="ck7ygs7fo0003asus6lzs9ufk" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/03/16/C-%E8%A1%A5%E5%85%85%E7%9F%A5%E8%AF%862-0/" data-id="ck7zvjqeu00037gus5qk1g5fo" class="article-share-link">Share</a>
       
       
     </footer>
@@ -285,7 +290,7 @@ class：
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/03/15/c-%E8%A1%A5%E5%85%85%E7%9F%A5%E8%AF%861-0/" data-id="ck7ygs7fn0002asusdpq38xx9" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/03/15/c-%E8%A1%A5%E5%85%85%E7%9F%A5%E8%AF%861-0/" data-id="ck7zvjqeu00047gushj56e437" class="article-share-link">Share</a>
       
       
     </footer>
@@ -326,7 +331,7 @@ class：
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/03/12/%E8%BF%99%E6%98%AF%E4%B8%80%E5%8F%AA%E8%82%A5%E9%BE%99%EF%BC%9F/" data-id="ck7ygs7fp0004asus08qlfv3z" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/03/12/%E8%BF%99%E6%98%AF%E4%B8%80%E5%8F%AA%E8%82%A5%E9%BE%99%EF%BC%9F/" data-id="ck7zvjqep00027gus2y6jas71" class="article-share-link">Share</a>
       
       
     </footer>
@@ -375,7 +380,7 @@ class：
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/03/12/hello-world/" data-id="ck7ygs7fe0001asusgbud3oyb" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/03/12/hello-world/" data-id="ck7zvjqej00017gusf9ai1xi3" class="article-share-link">Share</a>
       
       
     </footer>
