@@ -64,6 +64,72 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-c-补充知识4.0" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/03/22/c-%E8%A1%A5%E5%85%85%E7%9F%A5%E8%AF%864.0/" class="article-date">
+  <time datetime="2020-03-22T06:52:40.000Z" itemprop="datePublished">2020-03-22</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/03/22/c-%E8%A1%A5%E5%85%85%E7%9F%A5%E8%AF%864.0/">c++补充知识3.0</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>析构函数：<br>    可以将堆区开辟数据做释放操作<br>    用法：<br>    ~Person()<br>    {<br>        if (m_Height != NULL)<br>        {<br>            delete m_Height;<br>            m_Height = NULL;<br>        }<br>        cout &lt;&lt; “Person的析构构造函数的调用” &lt;&lt; endl;<br>    }</p>
+<p>浅拷贝带来的问题就是堆区的内存重复释放。<br>如果属性有在堆区开辟的，一定要自己提供拷贝构造函数，防止浅拷贝带来的问题。</p>
+<p>初始化列表初始化属性使用方法：<br>    例子：<br>    1.    Person() : m_A(10), m_B(20), m_C(30){}</p>
+<pre><code>2.    Person(int a, int b, int c) : m_A(a), m_B(b), m_C(c){}</code></pre><p>类可以作为类的对象成员<br>    例如：<br>        class A{}<br>        class B<br>        {<br>            A a;<br>        }</p>
+<p>静态成员变量：<br>    所有对象共享一份数据<br>    在编译阶段分配内存<br>    类内声明，内外初始化<br>    比如在某个类A中声明一个static int number；初始化为0。这个number就能被所有A的实例共用。在A的构造函数里加上number++，在A的析构函数里加上number–。那么每生成一个A的实例，number就加一，每销毁一个A的实例，number就减一，这样，number就可以记录程序中共生成了多少个A的实例。</p>
+<p>静态成员函数：<br>    所有对象共享同一个函数<br>    静态成员函数只能访问静态成员变量<br>class Person<br>{<br>public:<br>    static void func()<br>    {<br>        ……;<br>    }<br>    static int m_A;  //静态成员变量在类内声明<br>};<br>    int Person::m_A = 0;  //在类外初始化<br>    访问方式：<br>        1.通过对象访问：<br>        Person p;<br>        p.func();<br>        2.通过类名访问：<br>        Person::func();</p>
+<p>空对象占用内存空间为：1<br>c++会给每个编译器分配一个字节空间，是为了区分空对象占内存的位置</p>
+<p>this指针的用途:<br>    当形参和成员变量同名时，可用this指针来区分<br>public:<br>    Person(int age)<br>    {<br>        this-&gt;age = age;    //this指针指向被调用的成员函数所属的对象<br>    }<br>    int age;<br>    在类的非静态成员函数中返回对象本身，可使用return * this</p>
+<p>在成员函数后面加const，修饰的是this指向，让指针指向的值也不可以修改<br>void showPerson() const  //常函数<br>{<br>    this-&gt;m_B = 100;<br>}<br>mutable int m_B; //特殊变量，在常函数中，也可以修改这个值<br>void test()<br>{<br>    const Person p;  //常对象<br>}</p>
+<p>常对象只能调用常函数</p>
+<p>总结：<br>    常函数：<br>        成员函数后加const后就是常函数<br>        常函数内不可以改成员属性<br>        成员属性声明时加关键字mutable后，在常函数中依然可以修改<br>    常对象：<br>        声明对象前加const称对象为常对象<br>        常对象只能调用常函数</p>
+<p>友元：<br>全局函数做友元：<br>#include<iostream><br>using namespace std;</p>
+<p>class Building<br>{<br>    friend void goodGay(Building* building);   //goodGay全局函数是Buliding好友，可以访问Building中的私有成员   全局函数做友元<br>public:<br>    string m_SittingRoom;   //客厅<br>    Building()<br>    {<br>        m_SittingRoom = “客厅”;<br>        m_BedRoom = “卧室”;<br>    }<br>private:<br>    string m_BedRoom;   //卧室</p>
+<p>};</p>
+<p>void goodGay(Building* building)<br>{<br>    cout &lt;&lt; “goodGay全局函数正在访问：” &lt;&lt; building-&gt;m_SittingRoom &lt;&lt; endl;<br>    cout &lt;&lt; “goodGay全局函数正在访问：” &lt;&lt; building-&gt;m_BedRoom &lt;&lt; endl;     //访问卧室（private）<br>}</p>
+<p>void test()<br>{<br>    Building building;<br>    goodGay(&amp;building);<br>}<br>int main() {<br>    test();</p>
+<pre><code>system(&quot;pause&quot;);
+return 0;</code></pre><p>}</p>
+<p>类做友元：<br>#include<iostream><br>using namespace std;</p>
+<p>class Building;   //告诉编译器一会写这个类，先不要报错<br>class GoodGay<br>{<br>public:<br>    GoodGay();<br>    void visit();   //参观函数，访问Building中的属性<br>    Building* building;<br>};</p>
+<p>class Building<br>{<br>    friend class GoodGay;     //friend类<br>public:<br>    Building();<br>    string m_SittingRoom;<br>private:<br>    string m_BedRoom;<br>};</p>
+<p>//类外写成员函数<br>Building::Building()<br>{<br>    m_SittingRoom = “客厅”;<br>    m_BedRoom = “卧室”;<br>}<br>GoodGay::GoodGay()<br>{<br>    //创建建筑物的对象<br>    building = new Building;<br>}<br>void GoodGay::visit()<br>{<br>    cout &lt;&lt; “goodgay类正在访问：” &lt;&lt; building-&gt;m_SittingRoom &lt;&lt; endl;<br>    cout &lt;&lt; “goodgay类正在访问：” &lt;&lt; building-&gt;m_BedRoom &lt;&lt; endl;<br>}</p>
+<p>void test()<br>{<br>    GoodGay gg;<br>    gg.visit();<br>}</p>
+<p>int main() {<br>    test();<br>    system(“pause”);<br>    return 0;<br>}</p>
+<p>成员函数做友元：<br>#include<iostream><br>using namespace std;</p>
+<p>class Building;<br>class GoodGay<br>{<br>public:<br>    GoodGay();<br>    void visit(); //让visit函数可以访问Building中的私有成员<br>    void visit2();  //visit2不能访问Building中的成员<br>    Building* building;<br>};</p>
+<p>class Building<br>{<br>    friend void GoodGay::visit();   //告诉编译器 GoodGay类下的visit作为本类的好朋友，可以访问private<br>public:<br>    Building();<br>    string m_SittingRoom;<br>private:<br>    string m_BedRoom;<br>};</p>
+<p>//类外实现成员函数<br>Building::Building()<br>{<br>    m_SittingRoom = “客厅”;<br>    m_BedRoom = “卧室”;<br>}</p>
+<p>GoodGay::GoodGay()<br>{<br>    building = new Building;<br>}<br>void GoodGay::visit()<br>{<br>    cout &lt;&lt; “visit函数正在访问：” &lt;&lt; building-&gt;m_SittingRoom &lt;&lt; endl;<br>    cout &lt;&lt; “visit函数正在访问：” &lt;&lt; building-&gt;m_BedRoom &lt;&lt; endl;<br>}<br>void GoodGay::visit2()<br>{<br>    cout &lt;&lt; “visit2函数正在访问：” &lt;&lt; building-&gt;m_SittingRoom &lt;&lt; endl;<br>}</p>
+<p>void test()<br>{<br>    GoodGay gg;<br>    gg.visit();<br>    gg.visit2();<br>}<br>int main() {<br>    test();<br>    system(“pause”);<br>    return 0;<br>}</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/03/22/c-%E8%A1%A5%E5%85%85%E7%9F%A5%E8%AF%864.0/" data-id="ck82p5oi60003kgusbdx8c5mm" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-有点难" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2020/03/20/%E6%9C%89%E7%82%B9%E9%9A%BE/" class="article-date">
@@ -92,7 +158,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/03/20/%E6%9C%89%E7%82%B9%E9%9A%BE/" data-id="ck7zvz2m70004cwusbqzk3cxi" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/03/20/%E6%9C%89%E7%82%B9%E9%9A%BE/" data-id="ck82p5oi90006kgus0gfoaxcy" class="article-share-link">Share</a>
       
       
     </footer>
@@ -210,7 +276,7 @@ class：
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/03/19/c-%E8%A1%A5%E5%85%85%E7%9F%A5%E8%AF%863-0/" data-id="ck7zvz2m70003cwuseyizf8xf" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/03/19/c-%E8%A1%A5%E5%85%85%E7%9F%A5%E8%AF%863-0/" data-id="ck82p5oi40001kgus1pw05lml" class="article-share-link">Share</a>
       
       
     </footer>
@@ -275,7 +341,7 @@ class：
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/03/16/C-%E8%A1%A5%E5%85%85%E7%9F%A5%E8%AF%862-0/" data-id="ck7zvz2m00000cwus94mhcimz" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/03/16/C-%E8%A1%A5%E5%85%85%E7%9F%A5%E8%AF%862-0/" data-id="ck82p5oi00000kgusc1xw8xka" class="article-share-link">Share</a>
       
       
     </footer>
@@ -328,7 +394,7 @@ class：
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/03/15/c-%E8%A1%A5%E5%85%85%E7%9F%A5%E8%AF%861-0/" data-id="ck7zvz2m40001cwus8v3o3ega" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/03/15/c-%E8%A1%A5%E5%85%85%E7%9F%A5%E8%AF%861-0/" data-id="ck82p5oi60002kguscgkk6rd1" class="article-share-link">Share</a>
       
       
     </footer>
@@ -369,7 +435,7 @@ class：
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/03/12/%E8%BF%99%E6%98%AF%E4%B8%80%E5%8F%AA%E8%82%A5%E9%BE%99%EF%BC%9F/" data-id="ck7zvz2m80005cwus7zrobk5m" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/03/12/%E8%BF%99%E6%98%AF%E4%B8%80%E5%8F%AA%E8%82%A5%E9%BE%99%EF%BC%9F/" data-id="ck82p5oi80005kgusf4gi41md" class="article-share-link">Share</a>
       
       
     </footer>
@@ -418,7 +484,7 @@ class：
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/03/12/hello-world/" data-id="ck7zvz2m60002cwusbg104995" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/03/12/hello-world/" data-id="ck82p5oi70004kgus1ois5ykx" class="article-share-link">Share</a>
       
       
     </footer>
@@ -459,6 +525,10 @@ class：
       <ul>
         
           <li>
+            <a href="/2020/03/22/c-%E8%A1%A5%E5%85%85%E7%9F%A5%E8%AF%864.0/">c++补充知识3.0</a>
+          </li>
+        
+          <li>
             <a href="/2020/03/20/%E6%9C%89%E7%82%B9%E9%9A%BE/">有点难</a>
           </li>
         
@@ -472,10 +542,6 @@ class：
         
           <li>
             <a href="/2020/03/15/c-%E8%A1%A5%E5%85%85%E7%9F%A5%E8%AF%861-0/">c++补充知识1.0</a>
-          </li>
-        
-          <li>
-            <a href="/2020/03/12/%E8%BF%99%E6%98%AF%E4%B8%80%E5%8F%AA%E8%82%A5%E9%BE%99%EF%BC%9F/">这是一只肥龙？</a>
           </li>
         
       </ul>
