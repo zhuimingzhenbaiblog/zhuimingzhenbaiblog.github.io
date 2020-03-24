@@ -64,6 +64,74 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-c-补充知识5-0" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/03/24/c-%E8%A1%A5%E5%85%85%E7%9F%A5%E8%AF%865-0/" class="article-date">
+  <time datetime="2020-03-24T00:55:48.000Z" itemprop="datePublished">2020-03-24</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/03/24/c-%E8%A1%A5%E5%85%85%E7%9F%A5%E8%AF%865-0/">c++补充知识5.0</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>加号运算符重载：<br>    1.成员函数重载+号<br>    class Person<br>    {<br>    public:<br>        Person operator+(Person&amp; p)<br>        {<br>            Person temp;<br>            temp.m_A = this-&gt;m_A + p.m_A;<br>            temp.m_B = this-&gt;m_B + p.m_B;<br>            return temp;<br>        }<br>        …<br>    }<br>    2.全局函数重载+号<br>    Person operator+(Person&amp; p1, Person&amp; p2)<br>    {<br>        Person temp;<br>        temp.m_A = p1.m_A + p2.m_A;<br>        temp.m_B = p1.m_B + p2.m_B;<br>        return temp;<br>    }<br>    Person p3 = p1 + p2;</p>
+<p>运算符重载也可以发生函数重载<br>    如：Person operator+(Person&amp; p1, int num)</p>
+<pre><code>左移运算符重载 &lt;&lt;
+    作用：可以自定义输出数据类型
+    通常不会利用成员函数重载左移运算符
+    ##全局函数重载：
+    ostream&amp; operator&lt;&lt;(ostream&amp; cout, Person&amp; p)
+    {
+        cout &lt;&lt; &quot;m_A =&quot; &lt;&lt; p.m_A &lt;&lt;&quot;m_B =&quot; &lt;&lt; p.m_B;
+        return cout;
+    }
+    cout &lt;&lt; p &lt;&lt; endl;</code></pre><p>递增运算符重载：<br>    前置++：<br>    MyInteger&amp; operator++()<br>    {<br>        m_Num++;<br>        return* this;<br>    }<br>    MyInteger myint;<br>    ++myint;</p>
+<pre><code>后置++
+MyInteger operator++(int)  //int表示占位参数,可以用来区分前置和后置递增
+{
+    MyInteger temp = *this;
+    m_Num++;
+    return temp;
+}</code></pre><p>赋值运算符重载：<br>    Person&amp; operator=(Person&amp; p)    //不要返回void 要返回自身<br>    {<br>        //编译器提供的浅拷贝为： m_Age = p.m_Age;<br>        if (m_Age != NULL) //先判断是否有属性在堆区，如果有先释放干净，然后再深拷贝<br>        {<br>            delete m_Age;<br>            m_Age = NULL;<br>        }<br>        m_Age = new int(*p.m_Age); //深拷贝操作<br>        return *this;    //放回自身用this<br>    }</p>
+<p>关系运算符重载：<br>    bool operator==(Person&amp; p)<br>    {<br>        if(this-&gt;m_Name == p.m_Name &amp;&amp; this-&gt;m_Age == p.m_Age)<br>        {<br>            return true;<br>        }<br>        return false;<br>    }<br>        bool operator!=(Person&amp; p)<br>    {<br>        if(this-&gt;m_Name != p.m_Name || this-&gt;m_Age != p.m_Age)<br>        {<br>            return true;<br>        }<br>        return false;<br>    }</p>
+<p>函数调用运算符重载：<br>    函数调用运算符()也可以重载<br>    由于重载后使用的方式非常像函数的调用，因此称为仿函数<br>    仿函数没有固定写法，非常灵活</p>
+<pre><code>例子：打印输出
+class MyPrint
+{
+public:
+    void operator()(string test)
+    {
+        cout &lt;&lt; test &lt;&lt; endl;
+    }
+}
+void test1;
+    MyPrint myPrint;
+    myPrint(&quot;hello world&quot;);  //很灵活，没有固定的写法</code></pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/03/24/c-%E8%A1%A5%E5%85%85%E7%9F%A5%E8%AF%865-0/" data-id="ck856xj1a0000q8usbx4t5rsm" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-c-补充知识4.0" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2020/03/22/c-%E8%A1%A5%E5%85%85%E7%9F%A5%E8%AF%864.0/" class="article-date">
@@ -120,7 +188,7 @@ return 0;</code></pre><p>}</p>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/03/22/c-%E8%A1%A5%E5%85%85%E7%9F%A5%E8%AF%864.0/" data-id="ck82pb1rj0003usus00z54b9j" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/03/22/c-%E8%A1%A5%E5%85%85%E7%9F%A5%E8%AF%864.0/" data-id="ck856xj2v0004q8us95kncxrp" class="article-share-link">Share</a>
       
       
     </footer>
@@ -158,7 +226,7 @@ return 0;</code></pre><p>}</p>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/03/20/%E6%9C%89%E7%82%B9%E9%9A%BE/" data-id="ck82pb1rk0004usus01gic9pi" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/03/20/%E6%9C%89%E7%82%B9%E9%9A%BE/" data-id="ck856xj1j0002q8us8tgibvs5" class="article-share-link">Share</a>
       
       
     </footer>
@@ -276,7 +344,7 @@ class：
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/03/19/c-%E8%A1%A5%E5%85%85%E7%9F%A5%E8%AF%863-0/" data-id="ck82pb1ri0002usus9xj3ed4y" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/03/19/c-%E8%A1%A5%E5%85%85%E7%9F%A5%E8%AF%863-0/" data-id="ck856xj2y0007q8us0a994iy6" class="article-share-link">Share</a>
       
       
     </footer>
@@ -341,7 +409,7 @@ class：
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/03/16/C-%E8%A1%A5%E5%85%85%E7%9F%A5%E8%AF%862-0/" data-id="ck82pb1rc0000usus7wgzggnx" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/03/16/C-%E8%A1%A5%E5%85%85%E7%9F%A5%E8%AF%862-0/" data-id="ck856xj1k0003q8usg5tk2cbt" class="article-share-link">Share</a>
       
       
     </footer>
@@ -394,7 +462,7 @@ class：
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/03/15/c-%E8%A1%A5%E5%85%85%E7%9F%A5%E8%AF%861-0/" data-id="ck82pb1rh0001usus49kugqvl" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/03/15/c-%E8%A1%A5%E5%85%85%E7%9F%A5%E8%AF%861-0/" data-id="ck856xj2x0006q8usgfef9j6g" class="article-share-link">Share</a>
       
       
     </footer>
@@ -435,7 +503,7 @@ class：
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/03/12/%E8%BF%99%E6%98%AF%E4%B8%80%E5%8F%AA%E8%82%A5%E9%BE%99%EF%BC%9F/" data-id="ck82pb1rl0006usus9rpch3n5" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/03/12/%E8%BF%99%E6%98%AF%E4%B8%80%E5%8F%AA%E8%82%A5%E9%BE%99%EF%BC%9F/" data-id="ck856xj2w0005q8us9v1g0f47" class="article-share-link">Share</a>
       
       
     </footer>
@@ -484,7 +552,7 @@ class：
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/03/12/hello-world/" data-id="ck82pb1rl0005ususctyg8rlk" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/03/12/hello-world/" data-id="ck856xj1j0001q8us9aq664h5" class="article-share-link">Share</a>
       
       
     </footer>
@@ -525,6 +593,10 @@ class：
       <ul>
         
           <li>
+            <a href="/2020/03/24/c-%E8%A1%A5%E5%85%85%E7%9F%A5%E8%AF%865-0/">c++补充知识5.0</a>
+          </li>
+        
+          <li>
             <a href="/2020/03/22/c-%E8%A1%A5%E5%85%85%E7%9F%A5%E8%AF%864.0/">c++补充知识4.0</a>
           </li>
         
@@ -538,10 +610,6 @@ class：
         
           <li>
             <a href="/2020/03/16/C-%E8%A1%A5%E5%85%85%E7%9F%A5%E8%AF%862-0/">C++补充知识2.0</a>
-          </li>
-        
-          <li>
-            <a href="/2020/03/15/c-%E8%A1%A5%E5%85%85%E7%9F%A5%E8%AF%861-0/">c++补充知识1.0</a>
           </li>
         
       </ul>
