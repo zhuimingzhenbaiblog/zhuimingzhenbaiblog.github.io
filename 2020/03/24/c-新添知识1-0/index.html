@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>c++新添知识1.0 | 椎名真白</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="继承：class BasePage{public:    ……};class java : public BasePage{public:    …};语法：    class 子类 : 继承方式 父类 {};继承方式：    1.公共继承    2.保护继承    3.私有继承 父类中的私有内容不可以访问，3种都不行在父类中的所有非静态成员属性都会被子类继承下去，私有成员被继承，但是不能访问如果">
+<meta property="og:type" content="article">
+<meta property="og:title" content="c++新添知识1.0">
+<meta property="og:url" content="http://yoursite.com/2020/03/24/c-%E6%96%B0%E6%B7%BB%E7%9F%A5%E8%AF%861-0/index.html">
+<meta property="og:site_name" content="椎名真白">
+<meta property="og:description" content="继承：class BasePage{public:    ……};class java : public BasePage{public:    …};语法：    class 子类 : 继承方式 父类 {};继承方式：    1.公共继承    2.保护继承    3.私有继承 父类中的私有内容不可以访问，3种都不行在父类中的所有非静态成员属性都会被子类继承下去，私有成员被继承，但是不能访问如果">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-03-24T07:54:35.000Z">
+<meta property="article:modified_time" content="2020-03-24T07:55:30.231Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="椎名真白" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">椎名真白</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-c-新添知识1-0" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/03/24/c-%E6%96%B0%E6%B7%BB%E7%9F%A5%E8%AF%861-0/" class="article-date">
+  <time datetime="2020-03-24T07:54:35.000Z" itemprop="datePublished">2020-03-24</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      c++新添知识1.0
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>继承：<br>class BasePage<br>{<br>public:<br>    ……<br>};<br>class java : public BasePage<br>{<br>public:<br>    …<br>};<br>语法：<br>    class 子类 : 继承方式 父类 {};<br>继承方式：<br>    1.公共继承<br>    2.保护继承<br>    3.私有继承</p>
+<p>父类中的私有内容不可以访问，3种都不行<br>在父类中的所有非静态成员属性都会被子类继承下去，私有成员被继承，但是不能访问<br>如果想访问父类中的被隐藏的同名成员或者成员函数，需要加作用域::</p>
+<p>静态成员属性访问方式：<br>    1.通过对象访问：<br>    s.Base::m_A<br>    2.通过类名访问:<br>    son::m_A  /  Base::m_A</p>
+<p>c++中允许一个类继承多个类<br>语法：<br>class 子类 ： 继承方式 父类1 ， 继承方式 父类2 {};</p>
+<p>关于菱形继承：<br>    需要虚继承： 在继承之前 加上关键字 virtual 变成虚继承<br>    class Sheep : virtual public Animal {};   //Animal类称为 虚基类</p>
+<p>虚函数： virtual 返回类型 函数名 (){}<br>纯虚函数： virtual 返回类型 函数名 () = 0;<br>动态多态满足关系：<br>    1.有继承关系<br>    2.子类重写父类的虚函数<br>动态多态的使用：<br>    父类的指针或者引用 执行子类对象</p>
+<p>纯虚函数：<br>    只要有一个纯虚函数，这个类就称为抽象类<br>    特点：<br>        1.无法实例化对象<br>        2.抽象类的子类，必须要重写父类中的纯虚数函数，否则也属于抽象类</p>
+<p>多态案例：<br>#include<iostream><br>using namespace std;</p>
+<p>class AbstractDrinking   //制作饮品抽象类<br>{<br>public:<br>    virtual void Boil() = 0; //煮水<br>    virtual void Brew() = 0; //冲泡<br>    virtual void PourInCup() = 0; //倒入杯中<br>    virtual void PutSomething() = 0; //加入辅料<br>    void makeDrink()<br>    {<br>        Boil();<br>        Boil();<br>        PourInCup();<br>        PutSomething();<br>    }<br>};<br>class Coffee : public AbstractDrinking<br>{<br>public:<br>    virtual void Boil() //煮水<br>    {<br>        cout &lt;&lt; “煮水” &lt;&lt; endl;<br>    }<br>    virtual void Brew()  //冲泡<br>    {<br>        cout &lt;&lt; “冲泡咖啡” &lt;&lt; endl;<br>    }<br>    virtual void PourInCup() //倒入杯中<br>    {<br>        cout &lt;&lt; “倒入杯中” &lt;&lt; endl;<br>    }<br>    virtual void PutSomething()  //加入辅料<br>    {<br>        cout &lt;&lt; “加入糖和牛奶” &lt;&lt; endl;<br>    }<br>};<br>class Tea : public AbstractDrinking<br>{<br>public:<br>    virtual void Boil() //煮水<br>    {<br>        cout &lt;&lt; “煮茶水” &lt;&lt; endl;<br>    }<br>    virtual void Brew()  //冲泡<br>    {<br>        cout &lt;&lt; “冲泡茶叶” &lt;&lt; endl;<br>    }<br>    virtual void PourInCup() //倒入杯中<br>    {<br>        cout &lt;&lt; “倒入茶杯中” &lt;&lt; endl;<br>    }<br>    virtual void PutSomething()  //加入辅料<br>    {<br>        cout &lt;&lt; “加入柠檬” &lt;&lt; endl;<br>    }<br>};<br>void doWork(AbstractDrinking* abs) //制作函数<br>{<br>    abs-&gt;makeDrink();<br>    delete abs;   //释放空间<br>}<br>void test()   //制作咖啡<br>{<br>    doWork(new Coffee);      //AbstractDrinking* abs = new Coffee<br>}<br>void test1()   //制作茶<br>{<br>    doWork(new Tea);      //AbstractDrinking* abs = new Tea<br>}<br>void doWork(AbstractDrinking&amp; abs) //制作函数  用引用方法<br>{<br>    abs.makeDrink();<br>}<br>void test2()<br>{<br>    Tea tea;<br>    doWork(tea);<br>}</p>
+<p>int main() {</p>
+<pre><code>test();
+test1();
+test2();
+system(&quot;pause&quot;);
+return 0;</code></pre><p>}</p>
+<p>虚析构：<br>virtual ~Animal(){}  //利用虚析构可以解决父类指针释放子类对象时不干净的问题<br>要点：<br>    1.虚析构或纯虚析构是用来解决父类指针释放子类对象<br>    2.如果子类中没有堆区的数据，可以不写虚析构或者纯虚析构<br>    3.拥有纯虚析构函数的类也属于抽象类</p>
+<p>案例2：<br>#include<iostream><br>using namespace std;</p>
+<p>class CPU //抽象CPU类<br>{<br>public:<br>    virtual void calculate() = 0;    //抽象计算函数<br>};</p>
+<p>class GPU //抽象GPU类<br>{<br>public:<br>    virtual void display() = 0;    //抽象显示函数<br>};</p>
+<p>class RAM //抽象内存类<br>{<br>public:<br>    virtual void storage() = 0;    //抽象存储函数<br>};</p>
+<p>class Computer   //电脑类<br>{<br>public:<br>    Computer(CPU* cpu, GPU* gpu, RAM* ram)   //有参构造函数<br>    {<br>        m_cpu = cpu;<br>        m_gpu = gpu;<br>        m_ram = ram;<br>    }<br>    void work()   //工作函数<br>    {<br>        m_cpu-&gt;calculate();<br>        m_gpu-&gt;display();<br>        m_ram-&gt;storage();<br>    }<br>    //提供析构函数 释放3个电脑零件<br>    ~Computer()<br>    {<br>        if (m_cpu != NULL)<br>        {<br>            delete m_cpu;<br>            m_cpu = NULL;<br>        }<br>        if (m_gpu != NULL)<br>        {<br>            delete m_gpu;<br>            m_gpu = NULL;<br>        }<br>        if (m_ram!= NULL)<br>        {<br>            delete m_ram;<br>            m_ram = NULL;<br>        }<br>    }<br>private:<br>    CPU* m_cpu;   //CPU的零件指针<br>    GPU* m_gpu;   //GPU的零件指针<br>    RAM* m_ram;   //RAM的零件指针<br>};<br>//具体厂商Intel<br>class IntelCPU : public CPU<br>{<br>public:<br>    void calculate()<br>    {<br>        cout &lt;&lt; “Intel的CPU开始工作” &lt;&lt; endl;<br>    }<br>};<br>class IntelGPU : public GPU<br>{<br>public:<br>    void display()<br>    {<br>        cout &lt;&lt; “Intel的GPU开始工作” &lt;&lt; endl;<br>    }<br>};<br>class IntelRAM : public RAM<br>{<br>public:<br>    void storage()<br>    {<br>        cout &lt;&lt; “Intel的内存条开始工作” &lt;&lt; endl;<br>    }<br>};<br>//具体厂商AMD<br>class AMDCPU : public CPU<br>{<br>public:<br>    void calculate()<br>    {<br>        cout &lt;&lt; “AMD的CPU开始工作” &lt;&lt; endl;<br>    }<br>};<br>class AMDGPU : public GPU<br>{<br>public:<br>    void display()<br>    {<br>        cout &lt;&lt; “AMD的GPU开始工作” &lt;&lt; endl;<br>    }<br>};<br>class AMDRAM : public RAM<br>{<br>public:<br>    void storage()<br>    {<br>        cout &lt;&lt; “AMD的内存条开始工作” &lt;&lt; endl;<br>    }<br>};</p>
+<p>void test()  //第一台机器的零件<br>{<br>    CPU* intelcpu = new IntelCPU;<br>    GPU* intelgpu = new IntelGPU;<br>    RAM* intelram = new IntelRAM;<br>    Computer* computer1 = new Computer(intelcpu, intelgpu, intelram);<br>    computer1-&gt;work();<br>    delete computer1;</p>
+<p>}<br>int main() {<br>    test();<br>    system(“pause”);<br>    return 0;<br>}</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/03/24/c-%E6%96%B0%E6%B7%BB%E7%9F%A5%E8%AF%861-0/" data-id="ck85lu14p0002pwus96u9admp" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2020/03/24/c-%E8%A1%A5%E5%85%85%E7%9F%A5%E8%AF%865-0/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">c++补充知识5.0</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2020/03/24/c-%E6%96%B0%E6%B7%BB%E7%9F%A5%E8%AF%861-0/">c++新添知识1.0</a>
+          </li>
+        
+          <li>
+            <a href="/2020/03/24/c-%E8%A1%A5%E5%85%85%E7%9F%A5%E8%AF%865-0/">c++补充知识5.0</a>
+          </li>
+        
+          <li>
+            <a href="/2020/03/22/c-%E8%A1%A5%E5%85%85%E7%9F%A5%E8%AF%864.0/">c++补充知识4.0</a>
+          </li>
+        
+          <li>
+            <a href="/2020/03/20/%E6%9C%89%E7%82%B9%E9%9A%BE/">有点难</a>
+          </li>
+        
+          <li>
+            <a href="/2020/03/19/c-%E8%A1%A5%E5%85%85%E7%9F%A5%E8%AF%863-0/">c++补充知识3.0</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>
