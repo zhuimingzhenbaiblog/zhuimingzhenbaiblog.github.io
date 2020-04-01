@@ -64,6 +64,93 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-c-中new-delete和malloc-free的区别" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/04/01/c-%E4%B8%ADnew-delete%E5%92%8Cmalloc-free%E7%9A%84%E5%8C%BA%E5%88%AB/" class="article-date">
+  <time datetime="2020-04-01T01:40:51.000Z" itemprop="datePublished">2020-04-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/04/01/c-%E4%B8%ADnew-delete%E5%92%8Cmalloc-free%E7%9A%84%E5%8C%BA%E5%88%AB/">c++中new/delete和malloc/free的区别</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>c++中new/delete和malloc/free的区别<br>原文链接：<a href="https://www.cnblogs.com/litao-tech/p/4318424.html" target="_blank" rel="noopener">https://www.cnblogs.com/litao-tech/p/4318424.html</a></p>
+<p>1、new/delete是C++的操作符，而malloc/free是C中的函数。</p>
+<p>2、new做两件事，一是分配内存，二是调用类的构造函数；同样，delete会调用类的析构函数和释放内存。而malloc和free只是分配和释放内存。</p>
+<p>3、new建立的是一个对象，而malloc分配的是一块内存；new建立的对象可以用成员函数访问，不要直接访问它的地址空间；malloc分配的是一块内存区域，用指针访问，可以在里面移动指针；new出来的指针是带有类型信息的，而malloc返回的是void指针。</p>
+<p>4、new/delete是保留字，不需要头文件支持；malloc/free需要头文件库函数支持。</p>
+<p>我们看一看malloc/free和new/delete如何实现对象的动态内存管理，见示例。</p>
+<p>class Obj<br>{<br>public:<br>    Obj() { cout &lt;&lt; “Initialization” &lt;&lt; endl; }<br>    ~Obj() { cout &lt;&lt; “Destroy” &lt;&lt; endl; }<br>    void Initialize() { cout &lt;&lt; “Initialization” &lt;&lt; endl; }<br>    void Destroy() { cout &lt;&lt; “Destroy” &lt;&lt; endl; }<br>};</p>
+<p>void UseMallocFree()<br>{<br>    Obj <em>a = (Obj</em>)malloc(sizeof(obj));<br>    a-&gt;Intialize();<br>    // …<br>    a-&gt;Destroy();<br>    free(a);<br>}</p>
+<p>void UseNewDelete()<br>{<br>    Obj *a = new Obj;<br>    //…<br>    delete a;<br>}</p>
+<p>类Obj的函数Initialize模拟了构造函数的功能，函数Destroy模拟了析构函数的功能。函数UseMallocFree中，由于malloc/free不能执行构造函数与析构函数，必须调用成员函数Initialize和Destroy来完成初始化与清除工作。函数UseNewDelete则简单得多。</p>
+<p>这只是个例子，不会有人用malloc/free来创建类对象。另外，new和delete配套使用，new[]和delete[]配套使用。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/04/01/c-%E4%B8%ADnew-delete%E5%92%8Cmalloc-free%E7%9A%84%E5%8C%BA%E5%88%AB/" data-id="ck8go1gj90000p8us0og0gyxu" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-c-新增知识2-0" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/04/01/c-%E6%96%B0%E5%A2%9E%E7%9F%A5%E8%AF%862-0/" class="article-date">
+  <time datetime="2020-04-01T01:38:40.000Z" itemprop="datePublished">2020-04-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/04/01/c-%E6%96%B0%E5%A2%9E%E7%9F%A5%E8%AF%862-0/">c++新增知识2.0</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>C++中对文件操作要包含头文件<fstream><br>头文件： #include<fstream><br>创建流对象： ofstream ofs;<br>打开文件： ofs.open(“文件路径”,打开方式);<br>写数据： ofs &lt;&lt; “。。。。”;<br>关闭文件：  ofs.close();<br>打开方式：<br>ios::in          为读文件而打开文件<br>ios::out         为写文件而打开文件<br>ios::ate         初始位置：文件尾<br>ios::app         追加方式写文件<br>ios::trunc       如果文件存在，删除文件然后再创建文件<br>ios::binary      二进制方式</p>
+<p>函数模板：<br>template<typename T><br>void mySwap(T&amp; a, T&amp; b)<br>{<br>    T temp = a;<br>    a = b;<br>    b = temp;<br>}<br>1.自动推导<br>    mySwap(a, b);<br>2.显示指定类型<br>    mySwap<int>(a, b);</p>
+<p>类模板和函数模板差别：<br>    1.类模板没有自动类型推导的使用方式<br>    2.类模板在模板列表中可以有默认参数</p>
+<p>STL（Standard Templata Library 标准模板库）</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/04/01/c-%E6%96%B0%E5%A2%9E%E7%9F%A5%E8%AF%862-0/" data-id="ck8go1gjd0001p8us33hb35e8" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-c-新添知识1-0" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2020/03/24/c-%E6%96%B0%E6%B7%BB%E7%9F%A5%E8%AF%861-0/" class="article-date">
@@ -113,7 +200,7 @@ return 0;</code></pre><p>}</p>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/03/24/c-%E6%96%B0%E6%B7%BB%E7%9F%A5%E8%AF%861-0/" data-id="ck85lu14p0002pwus96u9admp" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/03/24/c-%E6%96%B0%E6%B7%BB%E7%9F%A5%E8%AF%861-0/" data-id="ck8go1gje0002p8usf9pl2qs9" class="article-share-link">Share</a>
       
       
     </footer>
@@ -181,7 +268,7 @@ void test1;
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/03/24/c-%E8%A1%A5%E5%85%85%E7%9F%A5%E8%AF%865-0/" data-id="ck85lu14q0004pwus7vo34176" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/03/24/c-%E8%A1%A5%E5%85%85%E7%9F%A5%E8%AF%865-0/" data-id="ck8go1gk10009p8usbjhn6vek" class="article-share-link">Share</a>
       
       
     </footer>
@@ -247,7 +334,7 @@ return 0;</code></pre><p>}</p>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/03/22/c-%E8%A1%A5%E5%85%85%E7%9F%A5%E8%AF%864.0/" data-id="ck85lu14s0006pwus19s8abr7" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/03/22/c-%E8%A1%A5%E5%85%85%E7%9F%A5%E8%AF%864.0/" data-id="ck8go1gjm0003p8usfqqv4kr3" class="article-share-link">Share</a>
       
       
     </footer>
@@ -285,7 +372,7 @@ return 0;</code></pre><p>}</p>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/03/20/%E6%9C%89%E7%82%B9%E9%9A%BE/" data-id="ck85lu14t0007pwusg2udh6cj" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/03/20/%E6%9C%89%E7%82%B9%E9%9A%BE/" data-id="ck8go1gjo0006p8us8nvl9u1b" class="article-share-link">Share</a>
       
       
     </footer>
@@ -403,7 +490,7 @@ class：
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/03/19/c-%E8%A1%A5%E5%85%85%E7%9F%A5%E8%AF%863-0/" data-id="ck85lu14q0003pwusgk3r8lcg" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/03/19/c-%E8%A1%A5%E5%85%85%E7%9F%A5%E8%AF%863-0/" data-id="ck8go1gjm0004p8us8nba60tv" class="article-share-link">Share</a>
       
       
     </footer>
@@ -468,7 +555,7 @@ class：
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/03/16/C-%E8%A1%A5%E5%85%85%E7%9F%A5%E8%AF%862-0/" data-id="ck85lu14j0000pwus8mldcjqf" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/03/16/C-%E8%A1%A5%E5%85%85%E7%9F%A5%E8%AF%862-0/" data-id="ck8go1gk5000ap8us5axxdtcx" class="article-share-link">Share</a>
       
       
     </footer>
@@ -521,7 +608,7 @@ class：
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/03/15/c-%E8%A1%A5%E5%85%85%E7%9F%A5%E8%AF%861-0/" data-id="ck85lu14n0001pwuscmn11p41" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/03/15/c-%E8%A1%A5%E5%85%85%E7%9F%A5%E8%AF%861-0/" data-id="ck8go1gjn0005p8usfto5dd3t" class="article-share-link">Share</a>
       
       
     </footer>
@@ -562,56 +649,7 @@ class：
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/03/12/%E8%BF%99%E6%98%AF%E4%B8%80%E5%8F%AA%E8%82%A5%E9%BE%99%EF%BC%9F/" data-id="ck85lu14t0008pwuscxvpfpt6" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2020/03/12/hello-world/" class="article-date">
-  <time datetime="2020-03-12T07:58:58.024Z" itemprop="datePublished">2020-03-12</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/03/12/hello-world/">Hello World</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/03/12/hello-world/" data-id="ck85lu14r0005pwus271217j8" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/03/12/%E8%BF%99%E6%98%AF%E4%B8%80%E5%8F%AA%E8%82%A5%E9%BE%99%EF%BC%9F/" data-id="ck8go1gjz0008p8usglcoaynk" class="article-share-link">Share</a>
       
       
     </footer>
@@ -622,6 +660,11 @@ class：
 
   
 
+
+  <nav id="page-nav">
+    
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
+  </nav>
 
 </section>
         
@@ -639,7 +682,7 @@ class：
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a></li></ul>
     </div>
   </div>
 
@@ -652,6 +695,14 @@ class：
       <ul>
         
           <li>
+            <a href="/2020/04/01/c-%E4%B8%ADnew-delete%E5%92%8Cmalloc-free%E7%9A%84%E5%8C%BA%E5%88%AB/">c++中new/delete和malloc/free的区别</a>
+          </li>
+        
+          <li>
+            <a href="/2020/04/01/c-%E6%96%B0%E5%A2%9E%E7%9F%A5%E8%AF%862-0/">c++新增知识2.0</a>
+          </li>
+        
+          <li>
             <a href="/2020/03/24/c-%E6%96%B0%E6%B7%BB%E7%9F%A5%E8%AF%861-0/">c++新添知识1.0</a>
           </li>
         
@@ -661,14 +712,6 @@ class：
         
           <li>
             <a href="/2020/03/22/c-%E8%A1%A5%E5%85%85%E7%9F%A5%E8%AF%864.0/">c++补充知识4.0</a>
-          </li>
-        
-          <li>
-            <a href="/2020/03/20/%E6%9C%89%E7%82%B9%E9%9A%BE/">有点难</a>
-          </li>
-        
-          <li>
-            <a href="/2020/03/19/c-%E8%A1%A5%E5%85%85%E7%9F%A5%E8%AF%863-0/">c++补充知识3.0</a>
           </li>
         
       </ul>
