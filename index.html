@@ -64,6 +64,47 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-冒泡排序" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/04/17/%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F/" class="article-date">
+  <time datetime="2020-04-17T03:07:35.000Z" itemprop="datePublished">2020-04-17</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/04/17/%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F/">冒泡排序</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>冒泡排序是一种排序算法</p>
+<p>重复的走访要排序的数列，一次比较两个元素<br>下面是一张动图，表示的很直观，动图来自：<a href="https://www.cnblogs.com/onepixel/articles/7674659.html" target="_blank" rel="noopener">https://www.cnblogs.com/onepixel/articles/7674659.html</a></p>
+<img src="/2020/04/17/%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F/%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F.gif" class="" title="冒泡排序">
+
+<p>就想GIF中所展现的那样，越小的元素会慢慢的“浮”到数列的顶端，就像冒泡一样<br>以下是c++语言来实现该算法：<br>void bubbleSort(int arr[], int len)<br>{<br>    for (int i = 0; i &lt; len - 1; i++)<br>        for (int j = 0; j &lt; len - 1 - i; j++)<br>        {<br>            if (arr[j] &gt; arr[j + 1])   //相邻两元素对比<br>            {<br>                int temp = arr[j + 1];    //元素交换<br>                arr[j + 1] = arr[j];<br>                arr[j] = temp;<br>            }<br>        }<br>}</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/04/17/%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F/" data-id="ck93mlnpa000b30usgcluhq01" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-来张图片" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2020/04/16/%E6%9D%A5%E5%BC%A0%E5%9B%BE%E7%89%87/" class="article-date">
@@ -93,7 +134,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/04/16/%E6%9D%A5%E5%BC%A0%E5%9B%BE%E7%89%87/" data-id="ck92cb1q7000bc4us7hmkbwgb" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/04/16/%E6%9D%A5%E5%BC%A0%E5%9B%BE%E7%89%87/" data-id="ck93mlnpb000d30us643l85xs" class="article-share-link">Share</a>
       
       
     </footer>
@@ -132,7 +173,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/04/14/%E9%9D%A2%E5%90%91csdn%E7%9A%84%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/" data-id="ck92cb1q8000dc4us6yi914fd" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/04/14/%E9%9D%A2%E5%90%91csdn%E7%9A%84%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/" data-id="ck93mlnpc000e30uscrn0g789" class="article-share-link">Share</a>
       
       
     </footer>
@@ -169,7 +210,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/04/03/%E6%97%B6%E4%B8%8D%E6%88%91%E5%BE%85/" data-id="ck92cb1q60009c4us4hecaili" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/04/03/%E6%97%B6%E4%B8%8D%E6%88%91%E5%BE%85/" data-id="ck93mlnp9000a30us71698n69" class="article-share-link">Share</a>
       
       
     </footer>
@@ -216,7 +257,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/04/01/c-%E4%B8%ADnew-delete%E5%92%8Cmalloc-free%E7%9A%84%E5%8C%BA%E5%88%AB/" data-id="ck92cb1q00002c4us219o5u9r" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/04/01/c-%E4%B8%ADnew-delete%E5%92%8Cmalloc-free%E7%9A%84%E5%8C%BA%E5%88%AB/" data-id="ck93mlnp5000330usaejvazui" class="article-share-link">Share</a>
       
       
     </footer>
@@ -256,7 +297,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/04/01/c-%E6%96%B0%E5%A2%9E%E7%9F%A5%E8%AF%862-0/" data-id="ck92cb1pz0001c4us5b7wajmm" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/04/01/c-%E6%96%B0%E5%A2%9E%E7%9F%A5%E8%AF%862-0/" data-id="ck93mlnp4000230us6y7c978u" class="article-share-link">Share</a>
       
       
     </footer>
@@ -315,7 +356,7 @@ return 0;</code></pre><p>}</p>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/03/24/c-%E6%96%B0%E6%B7%BB%E7%9F%A5%E8%AF%861-0/" data-id="ck92cb1q20004c4uscm4h6cre" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/03/24/c-%E6%96%B0%E6%B7%BB%E7%9F%A5%E8%AF%861-0/" data-id="ck93mlnp6000530usd8ab6yng" class="article-share-link">Share</a>
       
       
     </footer>
@@ -383,7 +424,7 @@ void test1;
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/03/24/c-%E8%A1%A5%E5%85%85%E7%9F%A5%E8%AF%865-0/" data-id="ck92cb1q50008c4us345g19ax" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/03/24/c-%E8%A1%A5%E5%85%85%E7%9F%A5%E8%AF%865-0/" data-id="ck93mlnp8000730usc3pn7j9i" class="article-share-link">Share</a>
       
       
     </footer>
@@ -449,7 +490,7 @@ return 0;</code></pre><p>}</p>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/03/22/c-%E8%A1%A5%E5%85%85%E7%9F%A5%E8%AF%864.0/" data-id="ck92cb1q40007c4us6t4aai9f" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/03/22/c-%E8%A1%A5%E5%85%85%E7%9F%A5%E8%AF%864.0/" data-id="ck93mlnp8000830usfzmm88m4" class="article-share-link">Share</a>
       
       
     </footer>
@@ -487,125 +528,7 @@ return 0;</code></pre><p>}</p>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/03/20/%E6%9C%89%E7%82%B9%E9%9A%BE/" data-id="ck92cb1q6000ac4ush18hhtq4" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-c-补充知识3-0" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2020/03/19/c-%E8%A1%A5%E5%85%85%E7%9F%A5%E8%AF%863-0/" class="article-date">
-  <time datetime="2020-03-19T07:58:37.000Z" itemprop="datePublished">2020-03-19</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/03/19/c-%E8%A1%A5%E5%85%85%E7%9F%A5%E8%AF%863-0/">c++补充知识3.0</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>int a 和 int &amp;a 的区别：<br>    int a的意思是定义一个变量a<br>    int &amp;a意思是定义一个引用        //引用相当于指针再取值 他和被引用的变量都是表示同一块内存<br>    引用就是给变量取别名 int b ;int &amp;a=b; 用cout&lt;&lt;&amp;a 和cout&lt;&lt;&amp;b 你会发现他们的地址是一样的</p>
-<p>C++核心编程：<br>    内存分区模型：<br>        #代码区：存放函数体的二进制代码，有操作系统进行管理。（就是自己写的代码的内容就是放在代码区中）<br>        #全局区：存放全局变量和静态变量以及常量。<br>        #栈区：由编译器自动分配释放，存放函数的参数值，局部变量等。（该地区的数据存活死亡由编译器管理）<br>        #堆区:由程序员分配和释放，若程序员不释放，程序结束时由操作系统回收。<br>    内存分区的意义：<br>        给数据不同的生命周期啊，内存管理会更加方便，合理，反正大大的好。</p>
-<pre><code>关于代码区：
-    1.很明显，存放的CPU执行的机器指令。就是01010101的二进制。
-    2.代码区是共享的，因为有些程序是频繁执行的，所以共享的话只要在内存中有一份代码就好了。
-    3.代码区是只读的，为了防止被改，你懂得。
-
-关于全局区：
-    全局变量和静态变量都放在这。
-    还包含了常量区:字符串常量和其他常量。
-    注意！！ 该区域的数据在程序结束后由操作系统释放，不归程序员管哦。
-    #全局变量定义在函数的外面
-    #静态变量：在普通变量前面加static后就属于静态变量，存放在全局区
-        语法： static int s_a = 10;
-    #常量：
-        1.字符串常量&quot;Hello World&quot;
-        2.const修饰的全局变量（在全局区）
-        3.const修饰的局部变量（不在全局区）
-
-关于栈区：
-    注意事项：不要返回局部变量的地址，栈区开辟的数据由编译器自动释放
-    栈区存放局部变量和形参的数据
-
-关于堆区：
-    利用new关键字，可以将数据开辟到堆区
-    new int(10); //返回这个数据的指针
-    int * p = new int (10);  //接收这个数据，此时指针本质也是局部变量，反正栈上，指针保存的数据是放在堆区
-    释放语法： delete p;  //释放p的内存
-    new int[10];  //创建一个数组
-    int * arr = new int[10];   
-    delete[] arr;       //释放数组</code></pre><p>引用：<br>    给变量起别名。<br>    语法： 数据类型 &amp;别名 = 原名；<br>    例子: int a =10; int &amp;b = a;<br>    注意事项： 引用必须初始化，并且不可以改。<br>    ##引用做函数参数<br>        引用传递 void swap(int &amp;a , int &amp;b){…}</p>
-<pre><code>引用做函数的返回值：
-    不要返回局部变量的引用。
-    函数的调用可以作为左值。 左值： test() = 1000; 
-
-引用的本质：
-    引用的本质在c++内部实现是一个指针常量
-    int &amp; ref = a; //等效于 int * const ref = &amp;a; 指针的指向不可以改，值可以改</code></pre><p>函数的重载：<br>    作用：函数的名可以相同，提高复用性<br>    满足的条件：<br>    1.同一个作用域下<br>    2.函数名称相同<br>    3.函数的参数类型不同，或者个数不同或者顺序不同</p>
-<p>类和对象：<br>    三大特性：封装，继承，多态</p>
-<pre><code>封装：
-    ##将属性和行为作为一个整体，表现生活中的事物
-    ##将属性和行为加以权限控制
-class：
-    class代表设计一个类，类后面紧跟着的就是累名称
-例子：    
-    class Circle
-    {
-    public：  //访问权限
-        int m_r;     //属性
-        double calculate()         //行为
-        {
-            return 2 * PI * m_r;        
-        }
-    }；
-    int main(){
-
-        Circle c1;    //创建具体的圆（对象）c1
-        c1.m_r = 10;  //给圆的对象的属性进行赋值
-        cout &lt;&lt; &quot;圆的周长为： &quot; &lt;&lt; c1.calculate() &lt;&lt; endl; //调用行为
-        .......
-    }
-
-数组，结构体，类的区别:
-    数组是一系列类型相同的元素集合。
-    结构体是不同类型的元素的集合。
-    类不仅是数据类型不同的元素组合，还包括了对元素的操作方法。
-    struct 默认权限是 公共 public
-    class  默认权限是 私有 private
-
-封装的意义：
-    类在设计的时候，可以把属性和行为放在不同的权限下，加以控制。
-    三种权限：
-        1.public     公共权限  类内可以访问 类外可以访问
-        2.protected  保护权限  类内可以访问 类外不可以访问
-        3.private    私有权限  类内可以访问 类外不可以访问
-    成员属性设置为私有：
-        优点1.可以自己控制读写的权限
-        优点2.对于写权限，我们可以检测数据的有效性</code></pre><p>对象的初始化和清理：<br>    构造函数，析构函数<br>    构造函数语法： 类名 (){}   //可以有参数，可以发生重载<br>    析构函数语法： 类名 (){}   //没有参数，不可以重载</p>
-<p>构造函数的分类及调用：<br>    分类：<br>        按参数分：有参构造和无参构造<br>        按类型分：普通构造和拷贝构造<br>            //无参构造函数<br>                Person(){<br>                    cout &lt;&lt; “ ….” &lt;&lt; endl;<br>                }<br>            //有参构造函数：<br>                Person(int a){<br>                    age = a;<br>                }<br>            //拷贝构造函数：<br>                Person(const Person &amp; p){<br>                    age = p.age;<br>                }<br>    调用方法：<br>        1.括号法<br>            Person p1;       //默认构造函数调用<br>            Person p2(10);   //有参构造函数<br>            Person p3(p2);   //拷贝构造函数<br>        2.显示法<br>            Person p2 = Person(10);<br>        3.隐式转换法<br>            Person p4 = 10;   //相当于 写了 Person p4 = Person(10);</p>
-<pre><code>拷贝构造函数的调用时机:
-    1.使用一个已经创建完毕的对象来初始化一个新对象
-    2.值传递的方式给函数参数传值
-    3.以值方式返回局部变量</code></pre>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/03/19/c-%E8%A1%A5%E5%85%85%E7%9F%A5%E8%AF%863-0/" data-id="ck92cb1q30005c4usc7fahpfr" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/03/20/%E6%9C%89%E7%82%B9%E9%9A%BE/" data-id="ck93mlnpa000c30uscggydk0q" class="article-share-link">Share</a>
       
       
     </footer>
@@ -651,6 +574,10 @@ class：
       <ul>
         
           <li>
+            <a href="/2020/04/17/%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F/">冒泡排序</a>
+          </li>
+        
+          <li>
             <a href="/2020/04/16/%E6%9D%A5%E5%BC%A0%E5%9B%BE%E7%89%87/">来张图片</a>
           </li>
         
@@ -664,10 +591,6 @@ class：
         
           <li>
             <a href="/2020/04/01/c-%E4%B8%ADnew-delete%E5%92%8Cmalloc-free%E7%9A%84%E5%8C%BA%E5%88%AB/">c++中new/delete和malloc/free的区别</a>
-          </li>
-        
-          <li>
-            <a href="/2020/04/01/c-%E6%96%B0%E5%A2%9E%E7%9F%A5%E8%AF%862-0/">c++新增知识2.0</a>
           </li>
         
       </ul>
