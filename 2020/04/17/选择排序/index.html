@@ -5,19 +5,21 @@
   
 
   
-  <title>c++新增知识2.0 | 椎名真白</title>
+  <title>选择排序 | 椎名真白</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="C++中对文件操作要包含头文件头文件： #include创建流对象： ofstream ofs;打开文件： ofs.open(“文件路径”,打开方式);写数据： ofs &lt;&lt; “。。。。”;关闭文件：  ofs.close();打开方式：ios::in          为读文件而打开文件ios::out         为写文件而打开文件ios::ate         初始位置：文">
+  <meta name="description" content="选择排序是一种简单的排序方法，每次循环都选出最小值GIF图如下：图片来自：https:&#x2F;&#x2F;www.cnblogs.com&#x2F;onepixel&#x2F;articles&#x2F;7674659.html   用c++代码实现： 12345678910111213141516void selectionSort(int arr[], int len)&amp;#123;	int minIndex, temp;	for (int">
 <meta property="og:type" content="article">
-<meta property="og:title" content="c++新增知识2.0">
-<meta property="og:url" content="http://yoursite.com/2020/04/01/c-%E6%96%B0%E5%A2%9E%E7%9F%A5%E8%AF%862-0/index.html">
+<meta property="og:title" content="选择排序">
+<meta property="og:url" content="http://yoursite.com/2020/04/17/%E9%80%89%E6%8B%A9%E6%8E%92%E5%BA%8F/index.html">
 <meta property="og:site_name" content="椎名真白">
-<meta property="og:description" content="C++中对文件操作要包含头文件头文件： #include创建流对象： ofstream ofs;打开文件： ofs.open(“文件路径”,打开方式);写数据： ofs &lt;&lt; “。。。。”;关闭文件：  ofs.close();打开方式：ios::in          为读文件而打开文件ios::out         为写文件而打开文件ios::ate         初始位置：文">
+<meta property="og:description" content="选择排序是一种简单的排序方法，每次循环都选出最小值GIF图如下：图片来自：https:&#x2F;&#x2F;www.cnblogs.com&#x2F;onepixel&#x2F;articles&#x2F;7674659.html   用c++代码实现： 12345678910111213141516void selectionSort(int arr[], int len)&amp;#123;	int minIndex, temp;	for (int">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2020-04-01T01:38:40.000Z">
-<meta property="article:modified_time" content="2020-04-01T01:39:28.148Z">
+<meta property="og:image" content="http://yoursite.com/2020/04/17/%E9%80%89%E6%8B%A9%E6%8E%92%E5%BA%8F/%E9%80%89%E6%8B%A9%E6%8E%92%E5%BA%8F.gif">
+<meta property="article:published_time" content="2020-04-17T05:25:34.000Z">
+<meta property="article:modified_time" content="2020-04-17T05:31:33.848Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://yoursite.com/2020/04/17/%E9%80%89%E6%8B%A9%E6%8E%92%E5%BA%8F/%E9%80%89%E6%8B%A9%E6%8E%92%E5%BA%8F.gif">
   
     <link rel="alternate" href="/atom.xml" title="椎名真白" type="application/atom+xml">
   
@@ -66,10 +68,10 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-c-新增知识2-0" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-选择排序" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2020/04/01/c-%E6%96%B0%E5%A2%9E%E7%9F%A5%E8%AF%862-0/" class="article-date">
-  <time datetime="2020-04-01T01:38:40.000Z" itemprop="datePublished">2020-04-01</time>
+    <a href="/2020/04/17/%E9%80%89%E6%8B%A9%E6%8E%92%E5%BA%8F/" class="article-date">
+  <time datetime="2020-04-17T05:25:34.000Z" itemprop="datePublished">2020-04-17</time>
 </a>
     
   </div>
@@ -80,7 +82,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      c++新增知识2.0
+      选择排序
     </h1>
   
 
@@ -88,15 +90,16 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>C++中对文件操作要包含头文件<fstream><br>头文件： #include<fstream><br>创建流对象： ofstream ofs;<br>打开文件： ofs.open(“文件路径”,打开方式);<br>写数据： ofs &lt;&lt; “。。。。”;<br>关闭文件：  ofs.close();<br>打开方式：<br>ios::in          为读文件而打开文件<br>ios::out         为写文件而打开文件<br>ios::ate         初始位置：文件尾<br>ios::app         追加方式写文件<br>ios::trunc       如果文件存在，删除文件然后再创建文件<br>ios::binary      二进制方式</p>
-<p>函数模板：<br>template<typename T><br>void mySwap(T&amp; a, T&amp; b)<br>{<br>    T temp = a;<br>    a = b;<br>    b = temp;<br>}<br>1.自动推导<br>    mySwap(a, b);<br>2.显示指定类型<br>    mySwap<int>(a, b);</p>
-<p>类模板和函数模板差别：<br>    1.类模板没有自动类型推导的使用方式<br>    2.类模板在模板列表中可以有默认参数</p>
-<p>STL（Standard Templata Library 标准模板库）</p>
+        <p>选择排序是一种简单的排序方法，每次循环都选出最小值<br>GIF图如下：<br>图片来自：<a href="https://www.cnblogs.com/onepixel/articles/7674659.html" target="_blank" rel="noopener">https://www.cnblogs.com/onepixel/articles/7674659.html</a></p>
+<img src="/2020/04/17/%E9%80%89%E6%8B%A9%E6%8E%92%E5%BA%8F/%E9%80%89%E6%8B%A9%E6%8E%92%E5%BA%8F.gif" class="" title="选择排序">
+
+<p>用c++代码实现：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">selectionSort</span><span class="params">(<span class="keyword">int</span> arr[], <span class="keyword">int</span> len)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> minIndex, temp;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; len - <span class="number">1</span>; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		minIndex = i;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> j = i + <span class="number">1</span>; j &lt; len; j++)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">if</span> (arr[j] &lt; arr[minIndex])</span><br><span class="line">				minIndex = j;</span><br><span class="line">		&#125;</span><br><span class="line">		temp = arr[i];</span><br><span class="line">		arr[i] = arr[minIndex];</span><br><span class="line">		arr[minIndex] = temp;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/04/01/c-%E6%96%B0%E5%A2%9E%E7%9F%A5%E8%AF%862-0/" data-id="ck93rnl5c0002wcus1h0kb8z6" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/04/17/%E9%80%89%E6%8B%A9%E6%8E%92%E5%BA%8F/" data-id="ck93rnl5j000dwcus4aoc1838" class="article-share-link">Share</a>
       
       
     </footer>
@@ -105,19 +108,10 @@
     
 <nav id="article-nav">
   
-    <a href="/2020/04/01/c-%E4%B8%ADnew-delete%E5%92%8Cmalloc-free%E7%9A%84%E5%8C%BA%E5%88%AB/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          c++中new/delete和malloc/free的区别
-        
-      </div>
-    </a>
   
-  
-    <a href="/2020/03/24/c-%E6%96%B0%E6%B7%BB%E7%9F%A5%E8%AF%861-0/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2020/04/17/%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">c++新添知识1.0</div>
+      <div class="article-nav-title">冒泡排序</div>
     </a>
   
 </nav>
