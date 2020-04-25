@@ -66,6 +66,50 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-SPI串行外设接口" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/04/25/SPI%E4%B8%B2%E8%A1%8C%E5%A4%96%E8%AE%BE%E6%8E%A5%E5%8F%A3/" class="article-date">
+  <time datetime="2020-04-25T03:08:04.000Z" itemprop="datePublished">2020-04-25</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/04/25/SPI%E4%B8%B2%E8%A1%8C%E5%A4%96%E8%AE%BE%E6%8E%A5%E5%8F%A3/">SPI串行外设接口</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>SPI串行外设接口</p>
+<p>SPI是串行外设接口（Serial Peripheral Interface）的缩写，是一种高速的，全双工，同步的通信总线，并且在芯片的管脚上只占用四根线，节约了芯片的管脚，同时为PCB的布局上节省空间，提供方便，正是出于这种简单易用的特性，越来越多的芯片集成了这种通信协议。</p>
+<p>SPI总线是一种4线总线，通过这一个总线实现某个模块和主控芯片之间的通信。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">MISO ：主设备数据输入，从设备数据输出</span><br><span class="line"></span><br><span class="line">MOSI ：主设备数据输出，从设备数据输入</span><br><span class="line"></span><br><span class="line">SCLK ：时钟信号，由主设备产生</span><br><span class="line"></span><br><span class="line">CS   ：使能信号</span><br></pre></td></tr></table></figure>
+
+<p>对于CS使能端来说，只有信号为预先规定的使能信号时（高电位或低电位），主芯片对从芯片的操作才有效。</p>
+<p>剩下的3根线负责数据交换。SPI串行通讯协议是一位一位传输数据的。</p>
+<p>这里SCLK时钟线提供时钟脉冲，SDI（MISO），SDO（MOSI）则给予此脉冲完成数据传输。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/04/25/SPI%E4%B8%B2%E8%A1%8C%E5%A4%96%E8%AE%BE%E6%8E%A5%E5%8F%A3/" data-id="ck9f2w18a0002dkus34654npv" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-关于MKV格式" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2020/04/24/%E5%85%B3%E4%BA%8EMKV%E6%A0%BC%E5%BC%8F/" class="article-date">
@@ -102,7 +146,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/04/24/%E5%85%B3%E4%BA%8EMKV%E6%A0%BC%E5%BC%8F/" data-id="ck9dygpsj0003twush4oo0x8w" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/04/24/%E5%85%B3%E4%BA%8EMKV%E6%A0%BC%E5%BC%8F/" data-id="ck9f2w18h000adkus0bgx6prr" class="article-share-link">Share</a>
       
       
     </footer>
@@ -136,12 +180,12 @@
       
         <p>有时困难会将你击垮，但相信我 你一定会好起来。</p>
 
-        <div id="aplayer-hNsBIbYP" class="aplayer aplayer-tag-marker" style="margin-bottom: 20px;">
+        <div id="aplayer-eDmbTzNV" class="aplayer aplayer-tag-marker" style="margin-bottom: 20px;">
             <pre class="aplayer-lrc-content"></pre>
         </div>
         <script>
           var ap = new APlayer({
-            element: document.getElementById("aplayer-hNsBIbYP"),
+            element: document.getElementById("aplayer-eDmbTzNV"),
             narrow: false,
             autoplay: false,
             showlrc: false,
@@ -161,7 +205,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/04/19/%E5%9F%8B%E9%AA%A8%E4%BD%95%E9%A1%BB%E6%A1%91%E6%A2%93%E5%9C%B0-%E4%BA%BA%E7%94%9F%E4%BD%95%E5%A4%84%E4%B8%8D%E9%9D%92%E5%B1%B1/" data-id="ck9dygpsl0006twus2ga6gl8q" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/04/19/%E5%9F%8B%E9%AA%A8%E4%BD%95%E9%A1%BB%E6%A1%91%E6%A2%93%E5%9C%B0-%E4%BA%BA%E7%94%9F%E4%BD%95%E5%A4%84%E4%B8%8D%E9%9D%92%E5%B1%B1/" data-id="ck9f2w18i000bdkusan1a4ye7" class="article-share-link">Share</a>
       
       
     </footer>
@@ -199,7 +243,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/04/18/%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F/" data-id="ck9dygpsn0008twuschaw1ts3" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/04/18/%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F/" data-id="ck9f2w18k000edkusc0tk0de1" class="article-share-link">Share</a>
       
       
     </footer>
@@ -239,7 +283,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/04/17/%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F/" data-id="ck9dygpsm0007twus1zvedow0" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/04/17/%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F/" data-id="ck9f2w18j000ddkusfgms94qy" class="article-share-link">Share</a>
       
       
     </footer>
@@ -280,7 +324,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/04/17/%E9%80%89%E6%8B%A9%E6%8E%92%E5%BA%8F/" data-id="ck9dygpsq000dtwusgagq2qs3" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/04/17/%E9%80%89%E6%8B%A9%E6%8E%92%E5%BA%8F/" data-id="ck9f2w18n000kdkus72r009qm" class="article-share-link">Share</a>
       
       
     </footer>
@@ -321,7 +365,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/04/17/%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F/" data-id="ck9dygpsn0009twus00t12a7o" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/04/17/%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F/" data-id="ck9f2w18i000cdkus198o1zvp" class="article-share-link">Share</a>
       
       
     </footer>
@@ -360,7 +404,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/04/16/%E6%9D%A5%E5%BC%A0%E5%9B%BE%E7%89%87/" data-id="ck9dygpso000atwus4qhj5v72" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/04/16/%E6%9D%A5%E5%BC%A0%E5%9B%BE%E7%89%87/" data-id="ck9f2w18l000hdkuse1y5cfzh" class="article-share-link">Share</a>
       
       
     </footer>
@@ -399,7 +443,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/04/14/%E9%9D%A2%E5%90%91csdn%E7%9A%84%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/" data-id="ck9dygpsu000jtwusazswar53" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/04/14/%E9%9D%A2%E5%90%91csdn%E7%9A%84%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/" data-id="ck9f2w18m000jdkusckgp7kmy" class="article-share-link">Share</a>
       
       
     </footer>
@@ -436,53 +480,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/04/03/%E6%97%B6%E4%B8%8D%E6%88%91%E5%BE%85/" data-id="ck9dygpsr000etwushj4e5qen" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-c-中new-delete和malloc-free的区别" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2020/04/01/c-%E4%B8%ADnew-delete%E5%92%8Cmalloc-free%E7%9A%84%E5%8C%BA%E5%88%AB/" class="article-date">
-  <time datetime="2020-04-01T01:40:51.000Z" itemprop="datePublished">2020-04-01</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/04/01/c-%E4%B8%ADnew-delete%E5%92%8Cmalloc-free%E7%9A%84%E5%8C%BA%E5%88%AB/">c++中new/delete和malloc/free的区别</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>c++中new/delete和malloc/free的区别<br>原文链接：<a href="https://www.cnblogs.com/litao-tech/p/4318424.html" target="_blank" rel="noopener">https://www.cnblogs.com/litao-tech/p/4318424.html</a></p>
-<p>1、new/delete是C++的操作符，而malloc/free是C中的函数。</p>
-<p>2、new做两件事，一是分配内存，二是调用类的构造函数；同样，delete会调用类的析构函数和释放内存。而malloc和free只是分配和释放内存。</p>
-<p>3、new建立的是一个对象，而malloc分配的是一块内存；new建立的对象可以用成员函数访问，不要直接访问它的地址空间；malloc分配的是一块内存区域，用指针访问，可以在里面移动指针；new出来的指针是带有类型信息的，而malloc返回的是void指针。</p>
-<p>4、new/delete是保留字，不需要头文件支持；malloc/free需要头文件库函数支持。</p>
-<p>我们看一看malloc/free和new/delete如何实现对象的动态内存管理，见示例。</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Obj</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    Obj() &#123; <span class="built_in">cout</span> &lt;&lt; <span class="string">"Initialization"</span> &lt;&lt; <span class="built_in">endl</span>; &#125;</span><br><span class="line">    ~Obj() &#123; <span class="built_in">cout</span> &lt;&lt; <span class="string">"Destroy"</span> &lt;&lt; <span class="built_in">endl</span>; &#125;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">Initialize</span><span class="params">()</span> </span>&#123; <span class="built_in">cout</span> &lt;&lt; <span class="string">"Initialization"</span> &lt;&lt; <span class="built_in">endl</span>; &#125;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">Destroy</span><span class="params">()</span> </span>&#123; <span class="built_in">cout</span> &lt;&lt; <span class="string">"Destroy"</span> &lt;&lt; <span class="built_in">endl</span>; &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">UseMallocFree</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    Obj *a = (Obj*)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(obj));</span><br><span class="line">    a-&gt;Intialize();</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">    a-&gt;Destroy();</span><br><span class="line">    <span class="built_in">free</span>(a);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">UseNewDelete</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    Obj *a = <span class="keyword">new</span> Obj;</span><br><span class="line">    <span class="comment">//...</span></span><br><span class="line">    <span class="keyword">delete</span> a;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>类Obj的函数Initialize模拟了构造函数的功能，函数Destroy模拟了析构函数的功能。函数UseMallocFree中，由于malloc/free不能执行构造函数与析构函数，必须调用成员函数Initialize和Destroy来完成初始化与清除工作。函数UseNewDelete则简单得多。</p>
-<p>这只是个例子，不会有人用malloc/free来创建类对象。另外，new和delete配套使用，new[]和delete[]配套使用。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/04/01/c-%E4%B8%ADnew-delete%E5%92%8Cmalloc-free%E7%9A%84%E5%8C%BA%E5%88%AB/" data-id="ck9dygpsc0000twusb93e4fta" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/04/03/%E6%97%B6%E4%B8%8D%E6%88%91%E5%BE%85/" data-id="ck9f2w18l000gdkus0i3xan2s" class="article-share-link">Share</a>
       
       
     </footer>
@@ -496,7 +494,7 @@
 
   <nav id="page-nav">
     
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
   </nav>
 
 </section>
@@ -528,6 +526,10 @@
       <ul>
         
           <li>
+            <a href="/2020/04/25/SPI%E4%B8%B2%E8%A1%8C%E5%A4%96%E8%AE%BE%E6%8E%A5%E5%8F%A3/">SPI串行外设接口</a>
+          </li>
+        
+          <li>
             <a href="/2020/04/24/%E5%85%B3%E4%BA%8EMKV%E6%A0%BC%E5%BC%8F/">关于MKV格式</a>
           </li>
         
@@ -541,10 +543,6 @@
         
           <li>
             <a href="/2020/04/17/%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F/">插入排序</a>
-          </li>
-        
-          <li>
-            <a href="/2020/04/17/%E9%80%89%E6%8B%A9%E6%8E%92%E5%BA%8F/">选择排序</a>
           </li>
         
       </ul>

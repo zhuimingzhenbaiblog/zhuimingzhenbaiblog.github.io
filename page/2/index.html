@@ -64,6 +64,52 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-c-中new-delete和malloc-free的区别" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/04/01/c-%E4%B8%ADnew-delete%E5%92%8Cmalloc-free%E7%9A%84%E5%8C%BA%E5%88%AB/" class="article-date">
+  <time datetime="2020-04-01T01:40:51.000Z" itemprop="datePublished">2020-04-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/04/01/c-%E4%B8%ADnew-delete%E5%92%8Cmalloc-free%E7%9A%84%E5%8C%BA%E5%88%AB/">c++中new/delete和malloc/free的区别</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>c++中new/delete和malloc/free的区别<br>原文链接：<a href="https://www.cnblogs.com/litao-tech/p/4318424.html" target="_blank" rel="noopener">https://www.cnblogs.com/litao-tech/p/4318424.html</a></p>
+<p>1、new/delete是C++的操作符，而malloc/free是C中的函数。</p>
+<p>2、new做两件事，一是分配内存，二是调用类的构造函数；同样，delete会调用类的析构函数和释放内存。而malloc和free只是分配和释放内存。</p>
+<p>3、new建立的是一个对象，而malloc分配的是一块内存；new建立的对象可以用成员函数访问，不要直接访问它的地址空间；malloc分配的是一块内存区域，用指针访问，可以在里面移动指针；new出来的指针是带有类型信息的，而malloc返回的是void指针。</p>
+<p>4、new/delete是保留字，不需要头文件支持；malloc/free需要头文件库函数支持。</p>
+<p>我们看一看malloc/free和new/delete如何实现对象的动态内存管理，见示例。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Obj</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    Obj() &#123; <span class="built_in">cout</span> &lt;&lt; <span class="string">"Initialization"</span> &lt;&lt; <span class="built_in">endl</span>; &#125;</span><br><span class="line">    ~Obj() &#123; <span class="built_in">cout</span> &lt;&lt; <span class="string">"Destroy"</span> &lt;&lt; <span class="built_in">endl</span>; &#125;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">Initialize</span><span class="params">()</span> </span>&#123; <span class="built_in">cout</span> &lt;&lt; <span class="string">"Initialization"</span> &lt;&lt; <span class="built_in">endl</span>; &#125;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">Destroy</span><span class="params">()</span> </span>&#123; <span class="built_in">cout</span> &lt;&lt; <span class="string">"Destroy"</span> &lt;&lt; <span class="built_in">endl</span>; &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">UseMallocFree</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    Obj *a = (Obj*)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(obj));</span><br><span class="line">    a-&gt;Intialize();</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">    a-&gt;Destroy();</span><br><span class="line">    <span class="built_in">free</span>(a);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">UseNewDelete</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    Obj *a = <span class="keyword">new</span> Obj;</span><br><span class="line">    <span class="comment">//...</span></span><br><span class="line">    <span class="keyword">delete</span> a;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>类Obj的函数Initialize模拟了构造函数的功能，函数Destroy模拟了析构函数的功能。函数UseMallocFree中，由于malloc/free不能执行构造函数与析构函数，必须调用成员函数Initialize和Destroy来完成初始化与清除工作。函数UseNewDelete则简单得多。</p>
+<p>这只是个例子，不会有人用malloc/free来创建类对象。另外，new和delete配套使用，new[]和delete[]配套使用。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/04/01/c-%E4%B8%ADnew-delete%E5%92%8Cmalloc-free%E7%9A%84%E5%8C%BA%E5%88%AB/" data-id="ck9f2w18b0003dkus9ctg0nza" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-c-新增知识2-0" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2020/04/01/c-%E6%96%B0%E5%A2%9E%E7%9F%A5%E8%AF%862-0/" class="article-date">
@@ -94,7 +140,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/04/01/c-%E6%96%B0%E5%A2%9E%E7%9F%A5%E8%AF%862-0/" data-id="ck9dygpsl0005twusazag9mfq" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/04/01/c-%E6%96%B0%E5%A2%9E%E7%9F%A5%E8%AF%862-0/" data-id="ck9f2w1890001dkush4dje9ht" class="article-share-link">Share</a>
       
       
     </footer>
@@ -144,7 +190,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/03/24/c-%E6%96%B0%E6%B7%BB%E7%9F%A5%E8%AF%861-0/" data-id="ck9dygpss000gtwusajvb9hgo" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/03/24/c-%E6%96%B0%E6%B7%BB%E7%9F%A5%E8%AF%861-0/" data-id="ck9f2w18d0004dkusgbbvbz0l" class="article-share-link">Share</a>
       
       
     </footer>
@@ -200,7 +246,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/03/24/c-%E8%A1%A5%E5%85%85%E7%9F%A5%E8%AF%865-0/" data-id="ck9dygpss000ftwuseoi09kj7" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/03/24/c-%E8%A1%A5%E5%85%85%E7%9F%A5%E8%AF%865-0/" data-id="ck9f2w18g0008dkusf07lcpnp" class="article-share-link">Share</a>
       
       
     </footer>
@@ -253,7 +299,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/03/22/c-%E8%A1%A5%E5%85%85%E7%9F%A5%E8%AF%864.0/" data-id="ck9dygpst000htwusgml568wx" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/03/22/c-%E8%A1%A5%E5%85%85%E7%9F%A5%E8%AF%864.0/" data-id="ck9f2w18f0007dkus0jo749tg" class="article-share-link">Share</a>
       
       
     </footer>
@@ -291,7 +337,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/03/20/%E6%9C%89%E7%82%B9%E9%9A%BE/" data-id="ck9dygpsp000ctwushkyk3wtv" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/03/20/%E6%9C%89%E7%82%B9%E9%9A%BE/" data-id="ck9f2w18k000fdkus2eghe2jh" class="article-share-link">Share</a>
       
       
     </footer>
@@ -341,7 +387,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/03/19/c-%E8%A1%A5%E5%85%85%E7%9F%A5%E8%AF%863-0/" data-id="ck9dygpsk0004twuseorg7cmp" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/03/19/c-%E8%A1%A5%E5%85%85%E7%9F%A5%E8%AF%863-0/" data-id="ck9f2w18f0006dkusebhw7lpf" class="article-share-link">Share</a>
       
       
     </footer>
@@ -414,7 +460,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/03/16/C-%E8%A1%A5%E5%85%85%E7%9F%A5%E8%AF%862-0/" data-id="ck9dygpsp000btwush6aec1s1" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/03/16/C-%E8%A1%A5%E5%85%85%E7%9F%A5%E8%AF%862-0/" data-id="ck9f2w1850000dkusd2do95vx" class="article-share-link">Share</a>
       
       
     </footer>
@@ -467,7 +513,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/03/15/c-%E8%A1%A5%E5%85%85%E7%9F%A5%E8%AF%861-0/" data-id="ck9dygpsh0001twushsnkaksb" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/03/15/c-%E8%A1%A5%E5%85%85%E7%9F%A5%E8%AF%861-0/" data-id="ck9f2w18e0005dkus3tote65z" class="article-share-link">Share</a>
       
       
     </footer>
@@ -508,56 +554,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/03/12/%E8%BF%99%E6%98%AF%E4%B8%80%E5%8F%AA%E8%82%A5%E9%BE%99%EF%BC%9F/" data-id="ck9dygpsu000itwusfq7v4dm6" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2020/03/12/hello-world/" class="article-date">
-  <time datetime="2020-03-12T07:58:58.024Z" itemprop="datePublished">2020-03-12</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/03/12/hello-world/">Hello World</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/03/12/hello-world/" data-id="ck9dygpsi0002twusg9d82eqa" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/03/12/%E8%BF%99%E6%98%AF%E4%B8%80%E5%8F%AA%E8%82%A5%E9%BE%99%EF%BC%9F/" data-id="ck9f2w18m000idkus71xt7kqw" class="article-share-link">Share</a>
       
       
     </footer>
@@ -571,7 +568,7 @@
 
   <nav id="page-nav">
     
-    <a class="extend prev" rel="prev" href="/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+    <a class="extend prev" rel="prev" href="/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/">Next &amp;raquo;</a>
   </nav>
 
 </section>
@@ -603,6 +600,10 @@
       <ul>
         
           <li>
+            <a href="/2020/04/25/SPI%E4%B8%B2%E8%A1%8C%E5%A4%96%E8%AE%BE%E6%8E%A5%E5%8F%A3/">SPI串行外设接口</a>
+          </li>
+        
+          <li>
             <a href="/2020/04/24/%E5%85%B3%E4%BA%8EMKV%E6%A0%BC%E5%BC%8F/">关于MKV格式</a>
           </li>
         
@@ -616,10 +617,6 @@
         
           <li>
             <a href="/2020/04/17/%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F/">插入排序</a>
-          </li>
-        
-          <li>
-            <a href="/2020/04/17/%E9%80%89%E6%8B%A9%E6%8E%92%E5%BA%8F/">选择排序</a>
           </li>
         
       </ul>
