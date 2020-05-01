@@ -7,15 +7,15 @@
   
   <title>c++新增知识2.0 | 椎名真白</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="C++中对文件操作要包含头文件头文件： #include创建流对象： ofstream ofs;打开文件： ofs.open(“文件路径”,打开方式);写数据： ofs &lt;&lt; “。。。。”;关闭文件：  ofs.close();打开方式：ios::in          为读文件而打开文件ios::out         为写文件而打开文件ios::ate         初始位置：文">
+  <meta name="description" content="C++中对文件操作要包含头文件">
 <meta property="og:type" content="article">
 <meta property="og:title" content="c++新增知识2.0">
 <meta property="og:url" content="http://yoursite.com/2020/04/01/c-%E6%96%B0%E5%A2%9E%E7%9F%A5%E8%AF%862-0/index.html">
 <meta property="og:site_name" content="椎名真白">
-<meta property="og:description" content="C++中对文件操作要包含头文件头文件： #include创建流对象： ofstream ofs;打开文件： ofs.open(“文件路径”,打开方式);写数据： ofs &lt;&lt; “。。。。”;关闭文件：  ofs.close();打开方式：ios::in          为读文件而打开文件ios::out         为写文件而打开文件ios::ate         初始位置：文">
-<meta property="og:locale" content="en_US">
+<meta property="og:description" content="C++中对文件操作要包含头文件">
+<meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-04-01T01:38:40.000Z">
-<meta property="article:modified_time" content="2020-04-01T01:39:28.148Z">
+<meta property="article:modified_time" content="2020-05-01T03:03:35.614Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
   
@@ -57,7 +57,7 @@
         
           <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
@@ -72,6 +72,10 @@
   <time datetime="2020-04-01T01:38:40.000Z" itemprop="datePublished">2020-04-01</time>
 </a>
     
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E9%AB%98%E7%BA%A7%E8%AF%AD%E8%A8%80%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/">高级语言与数据结构与算法</a>
+  </div>
+
   </div>
   <div class="article-inner">
     
@@ -88,7 +92,9 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>C++中对文件操作要包含头文件<fstream><br>头文件： #include<fstream><br>创建流对象： ofstream ofs;<br>打开文件： ofs.open(“文件路径”,打开方式);<br>写数据： ofs &lt;&lt; “。。。。”;<br>关闭文件：  ofs.close();<br>打开方式：<br>ios::in          为读文件而打开文件<br>ios::out         为写文件而打开文件<br>ios::ate         初始位置：文件尾<br>ios::app         追加方式写文件<br>ios::trunc       如果文件存在，删除文件然后再创建文件<br>ios::binary      二进制方式</p>
+        <p>C++中对文件操作要包含头文件<fstream></p>
+<a id="more"></a>
+<p>头文件： #include<fstream><br>创建流对象： ofstream ofs;<br>打开文件： ofs.open(“文件路径”,打开方式);<br>写数据： ofs &lt;&lt; “。。。。”;<br>关闭文件：  ofs.close();<br>打开方式：<br>ios::in          为读文件而打开文件<br>ios::out         为写文件而打开文件<br>ios::ate         初始位置：文件尾<br>ios::app         追加方式写文件<br>ios::trunc       如果文件存在，删除文件然后再创建文件<br>ios::binary      二进制方式</p>
 <p>函数模板：<br>template<typename T><br>void mySwap(T&amp; a, T&amp; b)<br>{<br>    T temp = a;<br>    a = b;<br>    b = temp;<br>}<br>1.自动推导<br>    mySwap(a, b);<br>2.显示指定类型<br>    mySwap<int>(a, b);</p>
 <p>类模板和函数模板差别：<br>    1.类模板没有自动类型推导的使用方式<br>    2.类模板在模板列表中可以有默认参数</p>
 <p>STL（Standard Templata Library 标准模板库）</p>
@@ -96,7 +102,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/04/01/c-%E6%96%B0%E5%A2%9E%E7%9F%A5%E8%AF%862-0/" data-id="ck9md47dq00051kusdmkf12ba" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/04/01/c-%E6%96%B0%E5%A2%9E%E7%9F%A5%E8%AF%862-0/" data-id="ck9nm549700056ous3cwfd97c" class="article-share-link">Share</a>
       
       
     </footer>
@@ -130,6 +136,13 @@
           <aside id="sidebar">
   
     
+  <div class="widget-wrap">
+    <h3 class="widget-title">椎名真白博客类别</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%B8%80%E4%BA%9B%E5%BE%AE%E4%B8%8D%E8%B6%B3%E9%81%93%E7%9A%84%E7%A1%AC%E4%BB%B6%E7%9F%A5%E8%AF%86/">一些微不足道的硬件知识</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%B9%9F%E8%AE%B8%E8%AF%A5%E6%9D%A5%E9%A6%96%E9%9F%B3%E4%B9%90/">也许该来首音乐</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%A7%86%E9%A2%91%E5%89%AA%E8%BE%91%E3%80%81%E5%86%85%E5%AE%B9%E5%88%9B%E4%BD%9C%E5%8F%8A3d%E5%BB%BA%E6%A8%A1/">视频剪辑、内容创作及3d建模</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%AB%98%E7%BA%A7%E8%AF%AD%E8%A8%80%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/">高级语言与数据结构与算法</a></li></ul>
+    </div>
+  </div>
+
 
   
     
@@ -139,9 +152,9 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
+    <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">四月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">三月 2020</a></li></ul>
     </div>
   </div>
 
@@ -149,7 +162,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
+    <h3 class="widget-title">最新文章</h3>
     <div class="widget">
       <ul>
         

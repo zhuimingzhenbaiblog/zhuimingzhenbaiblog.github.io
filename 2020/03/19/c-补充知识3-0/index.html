@@ -7,15 +7,15 @@
   
   <title>c++补充知识3.0 | 椎名真白</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="int a 和 int &amp;a 的区别：    int a的意思是定义一个变量a    int &amp;a意思是定义一个引用        &#x2F;&#x2F;引用相当于指针再取值 他和被引用的变量都是表示同一块内存    引用就是给变量取别名 int b ;int &amp;a&#x3D;b; 用cout&lt;&lt;&amp;a 和cout&lt;&lt;&amp;b 你会发现他们的地址是一样的 C++核心编">
+  <meta name="description" content="int a 和 int &amp;a 的区别：">
 <meta property="og:type" content="article">
 <meta property="og:title" content="c++补充知识3.0">
 <meta property="og:url" content="http://yoursite.com/2020/03/19/c-%E8%A1%A5%E5%85%85%E7%9F%A5%E8%AF%863-0/index.html">
 <meta property="og:site_name" content="椎名真白">
-<meta property="og:description" content="int a 和 int &amp;a 的区别：    int a的意思是定义一个变量a    int &amp;a意思是定义一个引用        &#x2F;&#x2F;引用相当于指针再取值 他和被引用的变量都是表示同一块内存    引用就是给变量取别名 int b ;int &amp;a&#x3D;b; 用cout&lt;&lt;&amp;a 和cout&lt;&lt;&amp;b 你会发现他们的地址是一样的 C++核心编">
-<meta property="og:locale" content="en_US">
+<meta property="og:description" content="int a 和 int &amp;a 的区别：">
+<meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-03-19T07:58:37.000Z">
-<meta property="article:modified_time" content="2020-04-17T05:36:32.237Z">
+<meta property="article:modified_time" content="2020-05-01T03:03:35.569Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
   
@@ -57,7 +57,7 @@
         
           <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
@@ -72,6 +72,10 @@
   <time datetime="2020-03-19T07:58:37.000Z" itemprop="datePublished">2020-03-19</time>
 </a>
     
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E9%AB%98%E7%BA%A7%E8%AF%AD%E8%A8%80%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/">高级语言与数据结构与算法</a>
+  </div>
+
   </div>
   <div class="article-inner">
     
@@ -88,8 +92,11 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>int a 和 int &amp;a 的区别：<br>    int a的意思是定义一个变量a<br>    int &amp;a意思是定义一个引用        //引用相当于指针再取值 他和被引用的变量都是表示同一块内存<br>    引用就是给变量取别名 int b ;int &amp;a=b; 用cout&lt;&lt;&amp;a 和cout&lt;&lt;&amp;b 你会发现他们的地址是一样的</p>
-<p>C++核心编程：<br>    内存分区模型：<br>        #代码区：存放函数体的二进制代码，有操作系统进行管理。（就是自己写的代码的内容就是放在代码区中）<br>        #全局区：存放全局变量和静态变量以及常量。<br>        #栈区：由编译器自动分配释放，存放函数的参数值，局部变量等。（该地区的数据存活死亡由编译器管理）<br>        #堆区:由程序员分配和释放，若程序员不释放，程序结束时由操作系统回收。<br>    内存分区的意义：<br>        给数据不同的生命周期啊，内存管理会更加方便，合理，反正大大的好。</p>
+        <p>int a 和 int &amp;a 的区别：</p>
+<a id="more"></a>
+<pre><code>int a的意思是定义一个变量a
+int &amp;a意思是定义一个引用        //引用相当于指针再取值 他和被引用的变量都是表示同一块内存
+引用就是给变量取别名 int b ;int &amp;a=b; 用cout&lt;&lt;&amp;a 和cout&lt;&lt;&amp;b 你会发现他们的地址是一样的</code></pre><p>C++核心编程：<br>    内存分区模型：<br>        #代码区：存放函数体的二进制代码，有操作系统进行管理。（就是自己写的代码的内容就是放在代码区中）<br>        #全局区：存放全局变量和静态变量以及常量。<br>        #栈区：由编译器自动分配释放，存放函数的参数值，局部变量等。（该地区的数据存活死亡由编译器管理）<br>        #堆区:由程序员分配和释放，若程序员不释放，程序结束时由操作系统回收。<br>    内存分区的意义：<br>        给数据不同的生命周期啊，内存管理会更加方便，合理，反正大大的好。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#96;&#96;&#96;</span><br><span class="line">	关于代码区：</span><br><span class="line">		1.很明显，存放的CPU执行的机器指令。就是01010101的二进制。</span><br><span class="line">		2.代码区是共享的，因为有些程序是频繁执行的，所以共享的话只要在内存中有一份代码就好了。</span><br><span class="line">		3.代码区是只读的，为了防止被改，你懂得。</span><br></pre></td></tr></table></figure>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">关于全局区：</span><br><span class="line">	全局变量和静态变量都放在这。</span><br><span class="line">	还包含了常量区:字符串常量和其他常量。</span><br><span class="line">	注意！！ 该区域的数据在程序结束后由操作系统释放，不归程序员管哦。</span><br><span class="line">	#全局变量定义在函数的外面</span><br><span class="line">	#静态变量：在普通变量前面加static后就属于静态变量，存放在全局区</span><br><span class="line">		语法： static int s_a &#x3D; 10;</span><br><span class="line">	#常量：</span><br><span class="line">		1.字符串常量&quot;Hello World&quot;</span><br><span class="line">		2.const修饰的全局变量（在全局区）</span><br><span class="line">		3.const修饰的局部变量（不在全局区）</span><br></pre></td></tr></table></figure>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">关于栈区：</span><br><span class="line">	注意事项：不要返回局部变量的地址，栈区开辟的数据由编译器自动释放</span><br><span class="line">	栈区存放局部变量和形参的数据</span><br></pre></td></tr></table></figure>
@@ -106,7 +113,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/03/19/c-%E8%A1%A5%E5%85%85%E7%9F%A5%E8%AF%863-0/" data-id="ck9md47dy000h1kus941cc0x0" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/03/19/c-%E8%A1%A5%E5%85%85%E7%9F%A5%E8%AF%863-0/" data-id="ck9nm549c000d6ouse4g5eylt" class="article-share-link">Share</a>
       
       
     </footer>
@@ -140,6 +147,13 @@
           <aside id="sidebar">
   
     
+  <div class="widget-wrap">
+    <h3 class="widget-title">椎名真白博客类别</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%B8%80%E4%BA%9B%E5%BE%AE%E4%B8%8D%E8%B6%B3%E9%81%93%E7%9A%84%E7%A1%AC%E4%BB%B6%E7%9F%A5%E8%AF%86/">一些微不足道的硬件知识</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%B9%9F%E8%AE%B8%E8%AF%A5%E6%9D%A5%E9%A6%96%E9%9F%B3%E4%B9%90/">也许该来首音乐</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%A7%86%E9%A2%91%E5%89%AA%E8%BE%91%E3%80%81%E5%86%85%E5%AE%B9%E5%88%9B%E4%BD%9C%E5%8F%8A3d%E5%BB%BA%E6%A8%A1/">视频剪辑、内容创作及3d建模</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%AB%98%E7%BA%A7%E8%AF%AD%E8%A8%80%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/">高级语言与数据结构与算法</a></li></ul>
+    </div>
+  </div>
+
 
   
     
@@ -149,9 +163,9 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
+    <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">四月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">三月 2020</a></li></ul>
     </div>
   </div>
 
@@ -159,7 +173,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
+    <h3 class="widget-title">最新文章</h3>
     <div class="widget">
       <ul>
         
