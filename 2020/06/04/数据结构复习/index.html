@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>数据结构复习 | 椎名真白</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="·数据结构的用处：    计算机内是数值运算的是依靠方程，但是非数值运算的（如表，树，图等）要依靠数据结构。    研究非数值计算的对象的关系和操作。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数据结构复习">
+<meta property="og:url" content="http://yoursite.com/2020/06/04/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%A4%8D%E4%B9%A0/index.html">
+<meta property="og:site_name" content="椎名真白">
+<meta property="og:description" content="·数据结构的用处：    计算机内是数值运算的是依靠方程，但是非数值运算的（如表，树，图等）要依靠数据结构。    研究非数值计算的对象的关系和操作。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://yoursite.com/2020/06/04/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%A4%8D%E4%B9%A0/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84.jpg">
+<meta property="og:image" content="http://yoursite.com/2020/06/04/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%A4%8D%E4%B9%A0/%E6%95%B0%E7%BB%84%E5%85%83%E7%B4%A0%E6%B1%82%E5%9C%B0%E5%9D%80.jpg">
+<meta property="og:image" content="http://yoursite.com/2020/06/04/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%A4%8D%E4%B9%A0/%E9%A1%BA%E5%BA%8F%E8%A1%A8%E5%92%8C%E9%93%BE%E8%A1%A8%E7%9A%84%E6%AF%94%E8%BE%83.jpg">
+<meta property="og:image" content="http://yoursite.com/2020/06/04/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%A4%8D%E4%B9%A0/%E6%A0%88.jpg">
+<meta property="og:image" content="http://yoursite.com/2020/06/04/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%A4%8D%E4%B9%A0/%E4%B8%80%E8%88%AC%E7%BA%BF%E6%80%A7%E8%A1%A8%E5%92%8C%E6%A0%88%E7%9A%84%E5%8C%BA%E5%88%AB.jpg">
+<meta property="og:image" content="http://yoursite.com/2020/06/04/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%A4%8D%E4%B9%A0/%E5%85%A5%E6%A0%88%E5%87%BA%E6%A0%88%E4%BE%8B%E9%A2%98.jpg">
+<meta property="og:image" content="http://yoursite.com/2020/06/04/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%A4%8D%E4%B9%A0/%E5%85%A5%E6%A0%88%E5%87%BA%E6%A0%882.jpg">
+<meta property="og:image" content="http://yoursite.com/2020/06/04/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%A4%8D%E4%B9%A0/%E9%98%9F%E5%88%97.jpg">
+<meta property="og:image" content="http://yoursite.com/2020/06/04/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%A4%8D%E4%B9%A0/%E6%A0%88%E4%B8%8E%E9%98%9F%E5%88%97%E5%B0%8F%E7%BB%93.jpg">
+<meta property="og:image" content="http://yoursite.com/2020/06/04/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%A4%8D%E4%B9%A0/%E5%AD%98%E5%82%A8%E5%AF%86%E5%BA%A6.jpg">
+<meta property="og:image" content="http://yoursite.com/2020/06/04/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%A4%8D%E4%B9%A0/%E4%BA%8C%E5%8F%89%E6%A0%91.jpg">
+<meta property="og:image" content="http://yoursite.com/2020/06/04/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%A4%8D%E4%B9%A0/%E8%8A%82%E7%82%B9%E8%AE%A1%E7%AE%97.jpg">
+<meta property="og:image" content="http://yoursite.com/2020/06/04/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%A4%8D%E4%B9%A0/%E6%99%AE%E9%80%9A%E6%A0%91.jpg">
+<meta property="og:image" content="http://yoursite.com/2020/06/04/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%A4%8D%E4%B9%A0/%E6%A3%AE%E6%9E%97.jpg">
+<meta property="article:published_time" content="2020-06-04T03:31:10.000Z">
+<meta property="article:modified_time" content="2020-06-04T03:34:39.104Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://yoursite.com/2020/06/04/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%A4%8D%E4%B9%A0/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84.jpg">
+  
+    <link rel="alternate" href="/atom.xml" title="椎名真白" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">椎名真白</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-数据结构复习" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/06/04/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%A4%8D%E4%B9%A0/" class="article-date">
+  <time datetime="2020-06-04T03:31:10.000Z" itemprop="datePublished">2020-06-04</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E8%BD%AF%E4%BB%B6/">软件</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      数据结构复习
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>·数据结构的用处：<br>    计算机内是数值运算的是依靠方程，但是非数值运算的（如表，树，图等）要依靠数据结构。<br>    研究非数值计算的对象的关系和操作。</p>
+<a id="more"></a>
+
+<p>·同样的数据对象，如果用不同的数据结构来表示，运算的效率可能会有明显的差异。</p>
+<p>·程序设计的实质 = 好的算法 + 好的结构</p>
+<p>·什么是数据结构:<br>    是相互之间存在一种或多种特定关系的数据元素的集合</p>
+<p>·数据结构之逻辑结构和物理结构：<br>    数据结构有逻辑结构和物理结构之分。<br>    物理结构是一种逻辑结构在存储器中的存储方式，存贮方式有顺序、链接、索引、散列等多种，所以一种逻辑结构可以采用多种物理结构存贮。<br>    通常所说的数据结构就是指逻辑结构。</p>
+<p>·逻辑结构4大类：<br>    集合：仅同属于一个集合<br>    线性结构：一对一的关系<br>    树结构：一对多的关系<br>    图结构：多对多的关系</p>
+<p>·物理结构：<br>    物理结构也叫做存储结构也有4大类：顺序、链式、索引、散列。</p>
+<p>·常用的数据运算：<br>    插入、删除、修改、查找、排序</p>
+<img src="/2020/06/04/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%A4%8D%E4%B9%A0/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84.jpg" class="" title="数据结构">
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>·线性结构包括：线性表，栈，队列，字符串，数组。其中最典型最常用的是线性表。</p>
+<p>·顺序存储定义：把逻辑上相邻的数据元素存储在物理上相邻的存储单元中的存储结构<br>    逻辑上相邻的元素，物理上也相邻。</p>
+<p>例题：<br>已知数组中的某个元素的的地址和每个元素要用几个字节存储，求一个未知元素的地址：</p>
+<img src="/2020/06/04/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%A4%8D%E4%B9%A0/%E6%95%B0%E7%BB%84%E5%85%83%E7%B4%A0%E6%B1%82%E5%9C%B0%E5%9D%80.jpg" class="" title="例题">
+
+<p>·链式存储结构特点：其结点在存储器中的位置是随意的，即逻辑上相邻的数据元素在物理上不一定相邻。</p>
+<p>·链式存储通过指针来实现数据的链式链接，每个存储节点都包含两部分：数据域和指针域。</p>
+<p>·链式存储的设计思想是牺牲空间效率换取时间效率。</p>
+<p>顺序表和链表的比较：</p>
+<img src="/2020/06/04/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%A4%8D%E4%B9%A0/%E9%A1%BA%E5%BA%8F%E8%A1%A8%E5%92%8C%E9%93%BE%E8%A1%A8%E7%9A%84%E6%AF%94%E8%BE%83.jpg" class="" title="顺序表和链表的比较">
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>栈：</p>
+<img src="/2020/06/04/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%A4%8D%E4%B9%A0/%E6%A0%88.jpg" class="" title="栈">
+
+<p>插入元素到栈顶的操作，叫入栈<br>从栈顶删除最后uige元素，叫出栈<br>删除和插入都只能在栈顶进行。</p>
+<p>·栈是一种特殊的线性表，他只能在表的一端（即栈顶）进行插入和删除的运算。</p>
+<p>一般线性表和栈的区别：</p>
+<img src="/2020/06/04/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%A4%8D%E4%B9%A0/%E4%B8%80%E8%88%AC%E7%BA%BF%E6%80%A7%E8%A1%A8%E5%92%8C%E6%A0%88%E7%9A%84%E5%8C%BA%E5%88%AB.jpg" class="" title="一般线性表和栈的区别">
+
+<p>·为什么要设计栈，栈有什么特殊的用途：<br>    1.调用函数或子程序非他莫属<br>    2.递运算的有力工具<br>    3.用来裱糊现场和恢复现场<br>    4.简化了程序设计的问题</p>
+<p>入栈出栈例题：</p>
+<img src="/2020/06/04/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%A4%8D%E4%B9%A0/%E5%85%A5%E6%A0%88%E5%87%BA%E6%A0%88%E4%BE%8B%E9%A2%98.jpg" class="" title="例题">
+<img src="/2020/06/04/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%A4%8D%E4%B9%A0/%E5%85%A5%E6%A0%88%E5%87%BA%E6%A0%882.jpg" class="" title="例题">
+
+<p>队列介绍:</p>
+<img src="/2020/06/04/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%A4%8D%E4%B9%A0/%E9%98%9F%E5%88%97.jpg" class="" title="队列">
+
+<p>链式队列一般不会满，因为删除时有free动作。顺序队列极易装满，因为数组通常有长度限制，而其前端的空间无法释放。</p>
+<p>线性表，栈与队列的异同：</p>
+<img src="/2020/06/04/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%A4%8D%E4%B9%A0/%E6%A0%88%E4%B8%8E%E9%98%9F%E5%88%97%E5%B0%8F%E7%BB%93.jpg" class="" title="小结">
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>·串即字符串，是数据元素为单个字符的特殊线性表。</p>
+<p>链式存储密度计算（块链结构）：</p>
+<img src="/2020/06/04/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%A4%8D%E4%B9%A0/%E5%AD%98%E5%82%A8%E5%AF%86%E5%BA%A6.jpg" class="" title="密度">
+
+<p>·BF算法（暴力算法）<br>·KMP算法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>·二叉树在所有树中结构最简单，规律性最强。所有数都可以转为唯一对应的二叉树，不失一般性。</p>
+<p>二叉树术语：</p>
+<img src="/2020/06/04/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%A4%8D%E4%B9%A0/%E4%BA%8C%E5%8F%89%E6%A0%91.jpg" class="" title="二叉树">
+
+<p>节点等计算：</p>
+<img src="/2020/06/04/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%A4%8D%E4%B9%A0/%E8%8A%82%E7%82%B9%E8%AE%A1%E7%AE%97.jpg" class="" title="二叉树">
+
+<p>·先序遍历<br>·中序遍历<br>·后序遍历</p>
+<p>·Huffman树<br>·Huffman编码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>普通树变成二叉树：</p>
+<img src="/2020/06/04/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%A4%8D%E4%B9%A0/%E6%99%AE%E9%80%9A%E6%A0%91.jpg" class="" title="树">
+
+<p>森林变二叉树：</p>
+<img src="/2020/06/04/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%A4%8D%E4%B9%A0/%E6%A3%AE%E6%9E%97.jpg" class="" title="森林">
+
+<p>·树的遍历：<br>    深度遍历（先序，后序）<br>    广度遍历（层次）</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/06/04/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%A4%8D%E4%B9%A0/" data-id="ckb087q0f001ingus2sooh0sg" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2020/05/31/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E5%9D%97%E6%9D%BF%E5%AD%90/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">我的第一块板子</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">椎名真白博客类别</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%86%85%E5%AE%B9%E5%88%9B%E4%BD%9C/">内容创作</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%A1%AC%E4%BB%B6/">硬件</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%BD%AF%E4%BB%B6/">软件</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%9F%B3%E4%B9%90%E6%8E%A8%E8%8D%90/">音乐推荐</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">六月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">五月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">四月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">三月 2020</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2020/06/04/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%A4%8D%E4%B9%A0/">数据结构复习</a>
+          </li>
+        
+          <li>
+            <a href="/2020/05/31/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E5%9D%97%E6%9D%BF%E5%AD%90/">我的第一块板子</a>
+          </li>
+        
+          <li>
+            <a href="/2020/05/18/Java%E6%96%97%E5%9C%B0%E4%B8%BB%EF%BC%8C%E5%86%85%E5%90%ABArrayList%E9%9B%86%E5%90%88%EF%BC%8CTreeSet%E6%A0%91%E9%9B%86%E5%90%88%EF%BC%8CHashMap%E5%9C%B0%E5%9B%BE%E9%94%AE%E5%92%8CCollectioons%E9%9A%8F%E6%9C%BA%E6%B4%97%E7%89%8C%E7%9A%84%E7%AE%80%E5%8D%95%E8%BF%90%E7%94%A8/">Java斗地主，内含ArrayList集合，TreeSet树集合，HashMap地图键和Collectioons随机洗牌的简单运用</a>
+          </li>
+        
+          <li>
+            <a href="/2020/05/16/%E7%94%A8Java%E7%AE%80%E5%8D%95%E7%9A%84%E7%BB%99%E4%BD%A0%E7%9A%84cpu%E8%B7%91%E5%88%86-%E2%97%8F%CB%87%E2%88%80%CB%87%E2%97%8F/">用Java简单的给你的cpu跑分(●ˇ∀ˇ●)</a>
+          </li>
+        
+          <li>
+            <a href="/2020/05/14/Java%E4%B8%AD%E7%9A%84%E6%8A%BD%E8%B1%A1%E7%B1%BB%E4%BB%A5%E5%8F%8A%E6%96%B9%E6%B3%95%E9%87%8D%E5%86%99%E5%92%8C%E7%BB%A7%E6%89%BF/">Java中的抽象类以及方法重写和继承</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"scale":1,"hHeadPos":0.5,"vHeadPos":0.618,"jsonPath":"/live2dw/assets/z16.model.json"},"display":{"superSample":2,"width":250,"height":500,"position":"right","hOffset":250,"vOffset":-20},"mobile":{"show":true,"scale":0.5},"react":{"opacityDefault":0.7,"opacityOnHover":0.2},"log":false});</script></body>
+</html>
